@@ -63,7 +63,7 @@ def debug_log(message: str, level: str = "INFO") -> None:
 
 def get_mod_directory() -> str:
     """Get the mod directory path"""
-    return os. path.dirname(os.path.abspath(__file__))
+    return os.path.dirname(os.path.abspath(__file__))
 
 def safe_str(obj: Any) -> str:
     """Safely convert object to string"""
@@ -96,7 +96,7 @@ def dump_object_recursive(obj: Any, name: str, depth: int = 0, max_depth: int = 
     indent = "  " * depth
     
     if depth > max_depth:
-        lines. append(f"{indent}[Max depth reached]")
+        lines.append(f"{indent}[Max depth reached]")
         debug_log(f"Max depth reached for {name}", "DEBUG")
         return lines
     
@@ -132,9 +132,9 @@ def dump_object_recursive(obj: Any, name: str, depth: int = 0, max_depth: int = 
                         lines.extend(sub_lines)
                         
             except Exception as e: 
-                lines.append(f"{indent}  - {attr}: <Error:  {e}>")
+                lines.append(f"{indent}  - {attr}: <Error: {e}>")
     except Exception as e:
-        lines. append(f"{indent}Error getting attributes: {e}")
+        lines.append(f"{indent}Error getting attributes: {e}")
     
     return lines
 
@@ -232,7 +232,7 @@ def dump_player_controller() -> dict:
                         lines.append(f"  Type: {safe_type(value)}")
                         lines.append(f"  Callable: {callable(value)}")
                 except Exception as e:
-                    lines. append(f"  Error accessing {attr}: {e}")
+                    lines.append(f"  Error accessing {attr}: {e}")
                     debug_log(f"Error accessing {attr}: {e}", "ERROR")
                 lines.append("")
         
@@ -250,7 +250,7 @@ def dump_player_controller() -> dict:
         for attr in pc_attrs: 
             if any(kw in attr.lower() for kw in inventory_keywords):
                 inventory_found_count += 1
-                lines. append(f"Found Inventory-related: {attr}")
+                lines.append(f"Found Inventory-related: {attr}")
                 debug_log(f"Processing inventory attribute: {attr}", "DEBUG")
                 try:
                     value = getattr(pc, attr, None)
@@ -287,16 +287,16 @@ def dump_player_controller() -> dict:
             for attr in pawn_attrs:
                 if any(kw in attr.lower() for kw in ['inventory', 'item', 'equipment', 'bank']):
                     pawn_found_count += 1
-                    lines.append(f"Pawn. {attr}:")
+                    lines.append(f"Pawn.{attr}:")
                     debug_log(f"Processing pawn attribute: {attr}", "DEBUG")
                     try:
                         value = getattr(pawn, attr, None)
                         dump_lines = dump_object_recursive(value, f"Pawn.{attr}", depth=0, max_depth=3)
                         lines.extend(dump_lines)
                     except Exception as e:
-                        lines.append(f"  Error:  {e}")
+                        lines.append(f"  Error: {e}")
                         debug_log(f"Error accessing Pawn.{attr}: {e}", "ERROR")
-                    lines. append("")
+                    lines.append("")
             debug_log(f"Found {pawn_found_count} pawn attributes", "DEBUG")
         else:
             lines.append("❌ No Pawn found")
@@ -321,17 +321,17 @@ def dump_player_controller() -> dict:
         
         for class_name in search_classes: 
             try:
-                lines.append(f"Searching for:  {class_name}")
+                lines.append(f"Searching for: {class_name}")
                 debug_log(f"Searching for class: {class_name}", "DEBUG")
                 objects = unrealsdk.find_all(class_name)
                 
                 if objects:
                     lines.append(f"  ✅ Found {len(objects)} objects!")
                     debug_log(f"Found {len(objects)} {class_name} objects", "INFO")
-                    for i, obj in enumerate(objects[: 3]):  # Only show first 3
+                    for i, obj in enumerate(objects[:3]):  # Only show first 3
                         lines.append(f"  Object {i+1}:")
                         lines.append(f"    Type: {safe_type(obj)}")
-                        lines.append(f"    Str: {safe_str(obj)[: 200]}")
+                        lines.append(f"    Str: {safe_str(obj)[:200]}")
                         
                         # Dump its structure
                         dump_lines = dump_object_recursive(obj, f"{class_name}[{i}]", depth=0, max_depth=2)
@@ -340,7 +340,7 @@ def dump_player_controller() -> dict:
                     lines.append(f"  ❌ No objects found")
                     debug_log(f"No {class_name} objects found", "DEBUG")
             except Exception as e:
-                lines.append(f"  ⚠️ Error searching:  {e}")
+                lines.append(f"  ⚠️ Error searching: {e}")
                 debug_log(f"Error searching {class_name}: {e}", "ERROR")
             lines.append("")
         
@@ -375,7 +375,7 @@ def save_dump_to_file(result: dict) -> None:
     try:
         with open(txt_path, 'w', encoding='utf-8') as f:
             f.write('\n'.join(result["all_text"]))
-        print(f"[{MOD_NAME}] ✅ Text dump saved to:  {txt_path}")
+        print(f"[{MOD_NAME}] ✅ Text dump saved to: {txt_path}")
         debug_log(f"Text dump saved to: {txt_path}", "INFO")
     except Exception as e:
         print(f"[{MOD_NAME}] ❌ Error saving text file: {e}")
@@ -410,13 +410,13 @@ def do_research(_) -> None:
     if result["success"]:
         print(f"[{MOD_NAME}] ✅ Research complete!")
         print(f"[{MOD_NAME}] 📄 Check files in: {get_mod_directory()}")
-        print(f"[{MOD_NAME}] Files:  {OUTPUT_FILE}, {JSON_FILE}")
+        print(f"[{MOD_NAME}] Files: {OUTPUT_FILE}, {JSON_FILE}")
         debug_log("Research completed successfully", "INFO")
     else:
-        print(f"[{MOD_NAME}] ❌ Research failed:  {result. get('error', 'Unknown error')}")
+        print(f"[{MOD_NAME}] ❌ Research failed: {result.get('error', 'Unknown error')}")
         debug_log(f"Research failed: {result.get('error', 'Unknown error')}", "ERROR")
 
-def on_research_button(_:  ButtonOption) -> None:
+def on_research_button(_: ButtonOption) -> None:
     """Button callback for manual research"""
     debug_log("Research button pressed", "INFO")
     do_research(None)
