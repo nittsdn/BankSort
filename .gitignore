@@ -1,0 +1,23 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Debug logs
+debug.log
+
+# Output files (optional - uncomment if you don't want to track them)
+# bank_structure_dump.txt
+# bank_structure_dump.json
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
