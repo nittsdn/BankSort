@@ -77,7 +77,7 @@ def safe_repr(obj: Any) -> str:
     try: 
         return repr(obj)
     except Exception as e:
-        return f"<Error getting repr:  {e}>"
+        return f"<Error getting repr: {e}>"
 
 def safe_type(obj: Any) -> str:
     """Safely get type of object"""
@@ -399,7 +399,7 @@ def save_dump_to_file(result: dict) -> None:
 
 @keybind("F8")
 def do_research(_) -> None:
-    """Keybind:  F8 to dump Bank structure"""
+    """Keybind: F8 to dump Bank structure"""
     debug_log("F8 pressed - starting Bank structure research", "INFO")
     print(f"[{MOD_NAME}] 🔍 Starting Bank structure research...")
     print(f"[{MOD_NAME}] Please wait...")
