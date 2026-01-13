@@ -178,6 +178,17 @@ Mod sẽ tạo các files sau trong thư mục mod:
 3. Implement sort logic
 4. Test in-game
 
+**🕐 Timeline/Next Steps:**
+- **Phase 1 (DONE)**: UI, keybinds, menu options, debug logging
+- **Phase 2 (NEXT)**: Research Bank API (dùng NumPad8 để dump structure)
+- **Phase 3 (FUTURE)**: Implement sort algorithms cho từng method
+- **Phase 4 (FUTURE)**: Testing và bug fixes
+
+**Bạn có thể giúp đỡ:**
+- Chạy NumPad8 trong game khi đang ở Bank
+- Share files `bank_structure_dump.txt` và `bank_structure_dump.json`
+- Điều này sẽ giúp understand API để implement sort
+
 ---
 
 ## 🐛 Debug Log Format

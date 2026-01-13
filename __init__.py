@@ -43,6 +43,10 @@ def debug_log(message: str, level: str = "INFO") -> None:
     """
     global DEBUG_ENABLED
     
+    # Early return for non-critical messages when debug is off (performance optimization)
+    if not DEBUG_ENABLED and level not in ["ERROR", "WARNING"]:
+        return
+    
     timestamp = datetime.now().strftime('%H:%M:%S.%f')[:-3]
     formatted_msg = f"[{timestamp}] [{MOD_NAME}] [{level}] {message}"
     
@@ -440,6 +444,15 @@ def sort_bank_items(method: str = "Boividevngu") -> None:
         
         # Log the sorting operation
         debug_log(f"Starting sort operation with {len(bank_objects)} bank objects", "INFO")
+        
+        # TODO: Implement actual sorting logic based on Bank API research
+        # Steps needed:
+        # 1. Run NumPad8 to dump Bank structure and understand the API
+        # 2. Find methods to get items list from bank_objects
+        # 3. Implement sorting algorithms for each method (Boividevngu, Rarity, Type, Name, Level)
+        # 4. Find methods to reorder/update items in the bank
+        # 5. Test each sort method in-game
+        # Reference: See bank_structure_dump.txt and bank_structure_dump.json for API details
         
         # Placeholder for actual sorting logic - this would need game-specific implementation
         # For now, we'll just log that the sort was attempted
