@@ -25,7 +25,8 @@ import json
 from datetime import datetime
 
 __version__: str = "0.7.0"
-__version_info__: tuple[int, ... ] = (0, 7, 0)
+# Parse version info from version string to keep them in sync
+__version_info__: tuple[int, ...] = tuple(int(x) for x in __version__.split('.'))
 
 # ==================== CONSTANTS ====================
 
@@ -47,22 +48,23 @@ BANK_CLASS_NAMES = [
     "OakStorageComponent",
     "OakInventoryBalanceStateComponent",
     "OakInventoryCustomizationPartInfo",
-    "InventoryBalanceData",
-    "InventoryData"
+    "InventoryBalanceData"
 ]
 
 # Additional class names for comprehensive mod data scanning
 # Based on bl3data's approach to data extraction
+# Note: Some classes may overlap with BANK_CLASS_NAMES - this is intentional
+# to ensure comprehensive scanning in different contexts
 MOD_RELATED_CLASSES = [
     "OakPlayerController",
     "OakCharacter_Player",
     "OakPlayerPawn",
-    "InventoryBalanceStateComponent",
+    "InventoryBalanceStateComponent",  # Overlaps with BANK_CLASS_NAMES - intentional
     "InventorySerialNumberDatabase",
     "ItemPoolData",
     "InventoryGenericPartData",
     "WeaponBalanceStateComponent",
-    "InventoryData"
+    "InventoryData"  # Overlaps with BANK_CLASS_NAMES - intentional
 ]
 
 # ==================== DEBUG SETTINGS ====================
@@ -163,6 +165,15 @@ def scan_for_mod_data(obj: Any, name: str) -> dict:
         "properties": []
     }
     
+    # Define category keywords mapping (optimized single-pass categorization)
+    category_keywords = {
+        "inventory_related": ['inventory', 'invslot', 'invitem'],
+        "bank_related": ['bank', 'storage', 'vault', 'stash'],
+        "item_related": ['item', 'weapon', 'gear', 'equipment'],
+        "balance_related": ['balance', 'part', 'generic'],
+        "serial_related": ['serial', 'guid', 'id', 'uuid']
+    }
+    
     try:
         attrs = dir(obj)
         
@@ -175,51 +186,18 @@ def scan_for_mod_data(obj: Any, name: str) -> dict:
                 value = getattr(obj, attr, None)
                 is_callable = callable(value)
                 value_type = safe_type(value)
-                
-                # Categorize based on keywords (bl3data style comprehensive scanning)
                 attr_lower = attr.lower()
                 
-                # Inventory-related
-                if any(kw in attr_lower for kw in ['inventory', 'invslot', 'invitem']):
-                    findings["inventory_related"].append({
-                        "name": attr,
-                        "type": value_type,
-                        "callable": is_callable
-                    })
+                # Single-pass categorization using the mapping
+                for category, keywords in category_keywords.items():
+                    if any(kw in attr_lower for kw in keywords):
+                        findings[category].append({
+                            "name": attr,
+                            "type": value_type,
+                            "callable": is_callable
+                        })
                 
-                # Bank/Storage-related  
-                if any(kw in attr_lower for kw in ['bank', 'storage', 'vault', 'stash']):
-                    findings["bank_related"].append({
-                        "name": attr,
-                        "type": value_type,
-                        "callable": is_callable
-                    })
-                
-                # Item-related
-                if any(kw in attr_lower for kw in ['item', 'weapon', 'gear', 'equipment']):
-                    findings["item_related"].append({
-                        "name": attr,
-                        "type": value_type,
-                        "callable": is_callable
-                    })
-                
-                # Balance-related (important for item stats)
-                if any(kw in attr_lower for kw in ['balance', 'part', 'generic']):
-                    findings["balance_related"].append({
-                        "name": attr,
-                        "type": value_type,
-                        "callable": is_callable
-                    })
-                
-                # Serial number related (for item identification)
-                if any(kw in attr_lower for kw in ['serial', 'guid', 'id', 'uuid']):
-                    findings["serial_related"].append({
-                        "name": attr,
-                        "type": value_type,
-                        "callable": is_callable
-                    })
-                
-                # Collect all methods for reference
+                # Collect all methods and properties
                 if is_callable:
                     findings["methods"].append(attr)
                 else:
