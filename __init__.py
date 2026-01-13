@@ -1,6 +1,12 @@
 """
-BankResearch - Phase 0. 5: Bank Structure Discovery
+BankResearch - Phase 0.7: Enhanced Bank Structure Discovery
 Dumps Bank and Inventory structures to understand the API
+
+Version 0.7.0: Enhanced with comprehensive scanning inspired by apocalyptech/bl3data
+- Added MOD_RELATED_CLASSES scanning for comprehensive data extraction
+- Enhanced object introspection with categorized findings
+- Added inventory serial number data scanning
+- Improved mod data summary output for easier analysis
 """
 
 if True:
@@ -18,17 +24,19 @@ import os
 import json
 from datetime import datetime
 
-__version__: str = "0.6.2"
-__version_info__: tuple[int, ... ] = (0, 6, 2)
+__version__: str = "0.7.0"
+__version_info__: tuple[int, ... ] = (0, 7, 0)
 
 # ==================== CONSTANTS ====================
 
 MOD_NAME = "BankResearch"
 OUTPUT_FILE = "bank_structure_dump.txt"
 JSON_FILE = "bank_structure_dump.json"
+SUMMARY_FILE = "mod_data_summary.txt"
 
 # Possible class names for bank/inventory objects in Borderlands 3
 # The actual class name may vary by game version, so we try multiple options
+# Expanded based on bl3data research patterns
 BANK_CLASS_NAMES = [
     "BankInventory",
     "OakInventory", 
@@ -36,7 +44,25 @@ BANK_CLASS_NAMES = [
     "InventoryComponent",
     "BankComponent",
     "OakInventoryItemPickup",
-    "OakStorageComponent"
+    "OakStorageComponent",
+    "OakInventoryBalanceStateComponent",
+    "OakInventoryCustomizationPartInfo",
+    "InventoryBalanceData",
+    "InventoryData"
+]
+
+# Additional class names for comprehensive mod data scanning
+# Based on bl3data's approach to data extraction
+MOD_RELATED_CLASSES = [
+    "OakPlayerController",
+    "OakCharacter_Player",
+    "OakPlayerPawn",
+    "InventoryBalanceStateComponent",
+    "InventorySerialNumberDatabase",
+    "ItemPoolData",
+    "InventoryGenericPartData",
+    "WeaponBalanceStateComponent",
+    "InventoryData"
 ]
 
 # ==================== DEBUG SETTINGS ====================
@@ -112,6 +138,100 @@ def safe_type(obj: Any) -> str:
         return str(type(obj))
     except Exception as e:
         return f"<Error getting type: {e}>"
+
+def scan_for_mod_data(obj: Any, name: str) -> dict:
+    """
+    Scan an object for mod-relevant data.
+    Inspired by bl3data's comprehensive data extraction approach.
+    
+    Args:
+        obj: The object to scan
+        name: Name/identifier for the object
+        
+    Returns:
+        Dictionary with categorized findings
+    """
+    findings = {
+        "name": name,
+        "type": safe_type(obj),
+        "inventory_related": [],
+        "bank_related": [],
+        "item_related": [],
+        "balance_related": [],
+        "serial_related": [],
+        "methods": [],
+        "properties": []
+    }
+    
+    try:
+        attrs = dir(obj)
+        
+        for attr in attrs:
+            # Skip private attributes
+            if attr.startswith('_'):
+                continue
+                
+            try:
+                value = getattr(obj, attr, None)
+                is_callable = callable(value)
+                value_type = safe_type(value)
+                
+                # Categorize based on keywords (bl3data style comprehensive scanning)
+                attr_lower = attr.lower()
+                
+                # Inventory-related
+                if any(kw in attr_lower for kw in ['inventory', 'invslot', 'invitem']):
+                    findings["inventory_related"].append({
+                        "name": attr,
+                        "type": value_type,
+                        "callable": is_callable
+                    })
+                
+                # Bank/Storage-related  
+                if any(kw in attr_lower for kw in ['bank', 'storage', 'vault', 'stash']):
+                    findings["bank_related"].append({
+                        "name": attr,
+                        "type": value_type,
+                        "callable": is_callable
+                    })
+                
+                # Item-related
+                if any(kw in attr_lower for kw in ['item', 'weapon', 'gear', 'equipment']):
+                    findings["item_related"].append({
+                        "name": attr,
+                        "type": value_type,
+                        "callable": is_callable
+                    })
+                
+                # Balance-related (important for item stats)
+                if any(kw in attr_lower for kw in ['balance', 'part', 'generic']):
+                    findings["balance_related"].append({
+                        "name": attr,
+                        "type": value_type,
+                        "callable": is_callable
+                    })
+                
+                # Serial number related (for item identification)
+                if any(kw in attr_lower for kw in ['serial', 'guid', 'id', 'uuid']):
+                    findings["serial_related"].append({
+                        "name": attr,
+                        "type": value_type,
+                        "callable": is_callable
+                    })
+                
+                # Collect all methods for reference
+                if is_callable:
+                    findings["methods"].append(attr)
+                else:
+                    findings["properties"].append(attr)
+                    
+            except Exception as e:
+                debug_log(f"Error scanning attribute {attr}: {e}", "DEBUG")
+                
+    except Exception as e:
+        debug_log(f"Error scanning object {name}: {e}", "ERROR")
+    
+    return findings
 
 # ==================== DUMP FUNCTIONS ====================
 
@@ -295,6 +415,71 @@ def dump_player_controller() -> dict:
         
         debug_log(f"Found {inventory_found_count} inventory-related attributes", "INFO")
         
+        # Scan for mod-related classes (bl3data approach)
+        debug_log("Scanning for mod-related classes", "INFO")
+        lines.append("="*80)
+        lines.append("🔍 MOD-RELATED CLASS SCANNING (bl3data approach)")
+        lines.append("="*80)
+        lines.append("")
+        lines.append("Scanning for classes that may contain useful mod data...")
+        lines.append("")
+        
+        mod_data_findings = {}
+        for class_name in MOD_RELATED_CLASSES:
+            try:
+                lines.append(f"Scanning: {class_name}")
+                debug_log(f"Scanning class: {class_name}", "DEBUG")
+                objects = unrealsdk.find_all(class_name)
+                
+                if objects:
+                    lines.append(f"  ✅ Found {len(objects)} {class_name} objects")
+                    debug_log(f"Found {len(objects)} {class_name} objects", "INFO")
+                    
+                    # Scan first object for mod-related data
+                    if len(objects) > 0:
+                        obj = objects[0]
+                        findings = scan_for_mod_data(obj, class_name)
+                        mod_data_findings[class_name] = findings
+                        
+                        # Report findings
+                        if findings["inventory_related"]:
+                            lines.append(f"    📦 Inventory attrs: {len(findings['inventory_related'])}")
+                            for item in findings["inventory_related"][:3]:  # Show first 3
+                                lines.append(f"      - {item['name']} ({item['type']})")
+                        
+                        if findings["bank_related"]:
+                            lines.append(f"    🏦 Bank attrs: {len(findings['bank_related'])}")
+                            for item in findings["bank_related"][:3]:
+                                lines.append(f"      - {item['name']} ({item['type']})")
+                        
+                        if findings["item_related"]:
+                            lines.append(f"    🎯 Item attrs: {len(findings['item_related'])}")
+                            for item in findings["item_related"][:3]:
+                                lines.append(f"      - {item['name']} ({item['type']})")
+                        
+                        if findings["balance_related"]:
+                            lines.append(f"    ⚖️ Balance attrs: {len(findings['balance_related'])}")
+                            for item in findings["balance_related"][:3]:
+                                lines.append(f"      - {item['name']} ({item['type']})")
+                        
+                        if findings["serial_related"]:
+                            lines.append(f"    🔢 Serial attrs: {len(findings['serial_related'])}")
+                            for item in findings["serial_related"][:3]:
+                                lines.append(f"      - {item['name']} ({item['type']})")
+                        
+                        lines.append(f"    📋 Total methods: {len(findings['methods'])}")
+                        lines.append(f"    📋 Total properties: {len(findings['properties'])}")
+                else:
+                    lines.append(f"  ❌ No objects found")
+                    debug_log(f"No {class_name} objects found", "DEBUG")
+            except Exception as e:
+                lines.append(f"  ⚠️ Error scanning: {e}")
+                debug_log(f"Error scanning {class_name}: {e}", "DEBUG")
+            lines.append("")
+        
+        # Store mod scan results
+        result["mod_scan_findings"] = mod_data_findings
+        
         # Check Pawn's inventory
         debug_log("Checking Pawn inventory", "DEBUG")
         lines.append("="*80)
@@ -361,6 +546,47 @@ def dump_player_controller() -> dict:
                 debug_log(f"Error searching {class_name}: {e}", "ERROR")
             lines.append("")
         
+        # Additional scan: Look for inventory serial data (bl3data approach)
+        debug_log("Scanning for inventory serial data", "INFO")
+        lines.append("="*80)
+        lines.append("🔢 INVENTORY SERIAL NUMBER DATA SCAN")
+        lines.append("="*80)
+        lines.append("")
+        lines.append("Looking for item serial number and identification data...")
+        lines.append("(Useful for understanding item structure and manipulation)")
+        lines.append("")
+        
+        serial_keywords = ['serial', 'guid', 'itemid', 'inventoryid']
+        serial_findings = {}
+        
+        # Scan PlayerController for serial-related attributes
+        for attr in pc_attrs:
+            attr_lower = attr.lower()
+            if any(kw in attr_lower for kw in serial_keywords):
+                try:
+                    value = getattr(pc, attr, None)
+                    serial_findings[attr] = {
+                        "type": safe_type(value),
+                        "callable": callable(value),
+                        "value_preview": safe_str(value)[:100]
+                    }
+                    lines.append(f"PC.{attr}:")
+                    lines.append(f"  Type: {safe_type(value)}")
+                    lines.append(f"  Callable: {callable(value)}")
+                    if not callable(value):
+                        lines.append(f"  Preview: {safe_str(value)[:100]}")
+                except Exception as e:
+                    lines.append(f"  Error: {e}")
+                lines.append("")
+        
+        result["serial_data_findings"] = serial_findings
+        
+        if not serial_findings:
+            lines.append("❌ No serial-related attributes found in PlayerController")
+            lines.append("This is normal - serial data might be in item objects themselves")
+        
+        lines.append("")
+        
         result["success"] = True
         debug_log("dump_player_controller completed successfully", "INFO")
         
@@ -398,11 +624,14 @@ def save_dump_to_file(result: dict) -> None:
         logging.error(f"[{MOD_NAME}] ❌ Error saving text file: {e}")
         debug_log(f"Error saving text file: {e}", "ERROR")
     
-    # Save JSON file
+    # Save JSON file with enhanced mod data
     json_path = os.path.join(mod_dir, JSON_FILE)
     try:
-        # Remove all_text from JSON (too large)
-        json_result = {k: v for k, v in result.items() if k != 'all_text'}
+        # Remove all_text from JSON (too large) but keep new scan data
+        json_result = {
+            k: v for k, v in result.items() 
+            if k != 'all_text'
+        }
         
         with open(json_path, 'w', encoding='utf-8') as f:
             json.dump(json_result, f, indent=2, default=str)
@@ -411,6 +640,58 @@ def save_dump_to_file(result: dict) -> None:
     except Exception as e:
         logging.error(f"[{MOD_NAME}] ❌ Error saving JSON file: {e}")
         debug_log(f"Error saving JSON file: {e}", "ERROR")
+    
+    # Save mod scan summary (new - inspired by bl3data's focused data extraction)
+    summary_path = os.path.join(mod_dir, "mod_data_summary.txt")
+    try:
+        with open(summary_path, 'w', encoding='utf-8') as f:
+            f.write("="*80 + "\n")
+            f.write("MOD DATA SCAN SUMMARY\n")
+            f.write("Comprehensive scan inspired by bl3data extraction techniques\n")
+            f.write("="*80 + "\n\n")
+            
+            # Write mod scan findings
+            if "mod_scan_findings" in result:
+                f.write("MOD-RELATED CLASSES FOUND:\n")
+                f.write("-"*80 + "\n")
+                for class_name, findings in result["mod_scan_findings"].items():
+                    f.write(f"\n{class_name}:\n")
+                    f.write(f"  Type: {findings['type']}\n")
+                    if findings["inventory_related"]:
+                        f.write(f"  Inventory attributes: {len(findings['inventory_related'])}\n")
+                    if findings["bank_related"]:
+                        f.write(f"  Bank attributes: {len(findings['bank_related'])}\n")
+                    if findings["item_related"]:
+                        f.write(f"  Item attributes: {len(findings['item_related'])}\n")
+                    if findings["balance_related"]:
+                        f.write(f"  Balance attributes: {len(findings['balance_related'])}\n")
+                    if findings["serial_related"]:
+                        f.write(f"  Serial attributes: {len(findings['serial_related'])}\n")
+                    f.write(f"  Total methods: {len(findings['methods'])}\n")
+                    f.write(f"  Total properties: {len(findings['properties'])}\n")
+                f.write("\n")
+            
+            # Write serial data findings
+            if "serial_data_findings" in result and result["serial_data_findings"]:
+                f.write("\nSERIAL NUMBER DATA FOUND:\n")
+                f.write("-"*80 + "\n")
+                for attr, data in result["serial_data_findings"].items():
+                    f.write(f"\n{attr}:\n")
+                    f.write(f"  Type: {data['type']}\n")
+                    f.write(f"  Callable: {data['callable']}\n")
+                    if not data['callable']:
+                        f.write(f"  Preview: {data['value_preview']}\n")
+                f.write("\n")
+            
+            f.write("\n" + "="*80 + "\n")
+            f.write("For full details, see bank_structure_dump.txt and bank_structure_dump.json\n")
+            f.write("="*80 + "\n")
+        
+        logging.info(f"[{MOD_NAME}] ✅ Mod data summary saved to: {summary_path}")
+        debug_log(f"Mod data summary saved to: {summary_path}", "INFO")
+    except Exception as e:
+        logging.error(f"[{MOD_NAME}] ❌ Error saving mod summary: {e}")
+        debug_log(f"Error saving mod summary: {e}", "ERROR")
 
 # ==================== KEYBIND & BUTTON ====================
 
@@ -515,7 +796,7 @@ def do_research(_) -> None:
     if result["success"]:
         logging.info(f"[{MOD_NAME}] ✅ Research complete!")
         logging.info(f"[{MOD_NAME}] 📄 Check files in: {get_mod_directory()}")
-        logging.info(f"[{MOD_NAME}] Files: {OUTPUT_FILE}, {JSON_FILE}")
+        logging.info(f"[{MOD_NAME}] Files: {OUTPUT_FILE}, {JSON_FILE}, {SUMMARY_FILE}")
         debug_log("Research completed successfully", "INFO")
     else:
         logging.error(f"[{MOD_NAME}] ❌ Research failed: {result.get('error', 'Unknown error')}")
@@ -615,7 +896,7 @@ logging.info(f"[{MOD_NAME}]   NumPad7 - Sort Bank (current method: {CURRENT_SORT
 logging.info(f"[{MOD_NAME}]   NumPad8 - Dump Bank Structure")
 logging.info(f"[{MOD_NAME}] 🐛 Debug mode: {'ENABLED' if DEBUG_ENABLED else 'DISABLED'} (toggle in options)")
 logging.info(f"[{MOD_NAME}] 📁 Available sort methods: {', '.join(SORT_METHODS.keys())}")
-logging.info(f"[{MOD_NAME}] Output files: {OUTPUT_FILE}, {JSON_FILE}, debug.log")
+logging.info(f"[{MOD_NAME}] Output files: {OUTPUT_FILE}, {JSON_FILE}, {SUMMARY_FILE}, debug.log")
 logging.info(f"[{MOD_NAME}] Location: {get_mod_directory()}")
 logging.info("="*80)
 
