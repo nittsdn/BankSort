@@ -38,7 +38,7 @@ SUMMARY_FILE = "mod_data_summary.txt"
 # Possible class names for bank/inventory objects in Borderlands 3
 # The actual class name may vary by game version, so we try multiple options
 # Expanded based on bl3data research patterns
-# Note: OakInventoryItemPickup is removed - it's for ground item pickups, not bank
+# Note: Removed OakInventoryItemPickup from this list - it's for ground item pickups, not bank inventory
 BANK_CLASS_NAMES = [
     "BankInventory",
     "OakInventory", 
