@@ -1,0 +1,186 @@
+[09:04:19.569] [BankResearch] [INFO] Debug mode enabled by user
+[09:04:19.569] [BankResearch] [INFO] ============================================================
+[09:04:19.570] [BankResearch] [INFO] Debug logging is now active!
+[09:04:19.570] [BankResearch] [INFO] All debug messages will be printed to console and saved to debug.log
+[09:04:19.570] [BankResearch] [INFO] ============================================================
+[09:04:19.570] [BankResearch] [INFO] BankResearch v0.6.0 initialized
+[09:11:02.681] [BankResearch] [INFO] Debug mode enabled by user
+[09:11:02.681] [BankResearch] [INFO] ============================================================
+[09:11:02.681] [BankResearch] [INFO] Debug logging is now active!
+[09:11:02.691] [BankResearch] [INFO] All debug messages will be printed to console and saved to debug.log
+[09:11:02.692] [BankResearch] [INFO] ============================================================
+[09:11:02.692] [BankResearch] [INFO] Sort method changed to: Boividevngu
+[09:11:02.692] [BankResearch] [INFO] BankResearch v0.6.0 initialized
+[09:12:03.796] [BankResearch] [INFO] Sort button pressed, using method: Boividevngu
+[09:12:03.796] [BankResearch] [INFO] sort_bank_items called with method: Boividevngu
+[09:12:03.796] [BankResearch] [DEBUG] PlayerController found, attempting to sort bank using 'Boividevngu' method
+[09:12:03.803] [BankResearch] [ERROR] Error sorting bank: Couldn't find class 'OakInventory'
+[09:12:03.804] [BankResearch] [ERROR] Traceback: Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\Borderlands 3\sdk_mods\BankSort\__init__.py", line 437, in sort_bank_items
+    bank_objects = unrealsdk.find_all("OakInventory")
+ValueError: Couldn't find class 'OakInventory'
+
+[09:12:05.559] [BankResearch] [INFO] Research button pressed
+[09:12:22.460] [BankResearch] [INFO] Sort method changed to: By Rarity
+[09:12:23.928] [BankResearch] [INFO] Sort method changed to: Boividevngu
+[09:13:23.368] [BankResearch] [INFO] Sort button pressed, using method: Boividevngu
+[09:13:23.369] [BankResearch] [INFO] sort_bank_items called with method: Boividevngu
+[09:13:23.369] [BankResearch] [DEBUG] PlayerController found, attempting to sort bank using 'Boividevngu' method
+[09:13:23.369] [BankResearch] [ERROR] Error sorting bank: Couldn't find class 'OakInventory'
+[09:13:23.370] [BankResearch] [ERROR] Traceback: Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\Borderlands 3\sdk_mods\BankSort\__init__.py", line 437, in sort_bank_items
+    bank_objects = unrealsdk.find_all("OakInventory")
+ValueError: Couldn't find class 'OakInventory'
+
+[09:13:24.202] [BankResearch] [INFO] Sort button pressed, using method: Boividevngu
+[09:13:24.202] [BankResearch] [INFO] sort_bank_items called with method: Boividevngu
+[09:13:24.202] [BankResearch] [DEBUG] PlayerController found, attempting to sort bank using 'Boividevngu' method
+[09:13:24.203] [BankResearch] [ERROR] Error sorting bank: Couldn't find class 'OakInventory'
+[09:13:24.203] [BankResearch] [ERROR] Traceback: Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\Borderlands 3\sdk_mods\BankSort\__init__.py", line 437, in sort_bank_items
+    bank_objects = unrealsdk.find_all("OakInventory")
+ValueError: Couldn't find class 'OakInventory'
+
+[09:13:24.568] [BankResearch] [INFO] Sort button pressed, using method: Boividevngu
+[09:13:24.569] [BankResearch] [INFO] sort_bank_items called with method: Boividevngu
+[09:13:24.569] [BankResearch] [DEBUG] PlayerController found, attempting to sort bank using 'Boividevngu' method
+[09:13:24.569] [BankResearch] [ERROR] Error sorting bank: Couldn't find class 'OakInventory'
+[09:13:24.569] [BankResearch] [ERROR] Traceback: Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\Borderlands 3\sdk_mods\BankSort\__init__.py", line 437, in sort_bank_items
+    bank_objects = unrealsdk.find_all("OakInventory")
+ValueError: Couldn't find class 'OakInventory'
+
+[09:16:35.882] [BankResearch] [INFO] Debug mode enabled by user
+[09:16:35.882] [BankResearch] [INFO] ============================================================
+[09:16:35.882] [BankResearch] [INFO] Debug logging is now active!
+[09:16:35.882] [BankResearch] [INFO] All debug messages will be printed to console and saved to debug.log
+[09:16:35.882] [BankResearch] [INFO] ============================================================
+[09:16:35.882] [BankResearch] [INFO] Sort method changed to: Boividevngu
+[09:16:35.883] [BankResearch] [INFO] BankResearch v0.6.0 initialized
+[09:21:05.276] [BankResearch] [INFO] Sort button pressed, using method: Boividevngu
+[09:21:05.276] [BankResearch] [INFO] sort_bank_items called with method: Boividevngu
+[09:21:05.276] [BankResearch] [DEBUG] PlayerController found, attempting to sort bank using 'Boividevngu' method
+[09:21:05.277] [BankResearch] [ERROR] Error sorting bank: Couldn't find class 'OakInventory'
+[09:21:05.277] [BankResearch] [ERROR] Traceback: Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\Borderlands 3\sdk_mods\BankSort\__init__.py", line 437, in sort_bank_items
+    bank_objects = unrealsdk.find_all("OakInventory")
+ValueError: Couldn't find class 'OakInventory'
+
+[09:21:06.075] [BankResearch] [INFO] Research button pressed
+[09:21:08.740] [BankResearch] [INFO] Research button pressed
+[09:21:09.272] [BankResearch] [INFO] Sort button pressed, using method: Boividevngu
+[09:21:09.272] [BankResearch] [INFO] sort_bank_items called with method: Boividevngu
+[09:21:09.272] [BankResearch] [DEBUG] PlayerController found, attempting to sort bank using 'Boividevngu' method
+[09:21:09.273] [BankResearch] [ERROR] Error sorting bank: Couldn't find class 'OakInventory'
+[09:21:09.273] [BankResearch] [ERROR] Traceback: Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\Borderlands 3\sdk_mods\BankSort\__init__.py", line 437, in sort_bank_items
+    bank_objects = unrealsdk.find_all("OakInventory")
+ValueError: Couldn't find class 'OakInventory'
+
+[09:21:09.606] [BankResearch] [INFO] Research button pressed
+[09:21:09.908] [BankResearch] [INFO] Sort button pressed, using method: Boividevngu
+[09:21:09.908] [BankResearch] [INFO] sort_bank_items called with method: Boividevngu
+[09:21:09.908] [BankResearch] [DEBUG] PlayerController found, attempting to sort bank using 'Boividevngu' method
+[09:21:09.909] [BankResearch] [ERROR] Error sorting bank: Couldn't find class 'OakInventory'
+[09:21:09.909] [BankResearch] [ERROR] Traceback: Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\Borderlands 3\sdk_mods\BankSort\__init__.py", line 437, in sort_bank_items
+    bank_objects = unrealsdk.find_all("OakInventory")
+ValueError: Couldn't find class 'OakInventory'
+
+[09:21:10.239] [BankResearch] [INFO] Research button pressed
+[09:21:10.744] [BankResearch] [INFO] Sort button pressed, using method: Boividevngu
+[09:21:10.745] [BankResearch] [INFO] sort_bank_items called with method: Boividevngu
+[09:21:10.745] [BankResearch] [DEBUG] PlayerController found, attempting to sort bank using 'Boividevngu' method
+[09:21:10.745] [BankResearch] [ERROR] Error sorting bank: Couldn't find class 'OakInventory'
+[09:21:10.745] [BankResearch] [ERROR] Traceback: Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\Borderlands 3\sdk_mods\BankSort\__init__.py", line 437, in sort_bank_items
+    bank_objects = unrealsdk.find_all("OakInventory")
+ValueError: Couldn't find class 'OakInventory'
+
+[09:21:11.406] [BankResearch] [INFO] Sort button pressed, using method: Boividevngu
+[09:21:11.407] [BankResearch] [INFO] sort_bank_items called with method: Boividevngu
+[09:21:11.407] [BankResearch] [DEBUG] PlayerController found, attempting to sort bank using 'Boividevngu' method
+[09:21:11.407] [BankResearch] [ERROR] Error sorting bank: Couldn't find class 'OakInventory'
+[09:21:11.407] [BankResearch] [ERROR] Traceback: Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\Borderlands 3\sdk_mods\BankSort\__init__.py", line 437, in sort_bank_items
+    bank_objects = unrealsdk.find_all("OakInventory")
+ValueError: Couldn't find class 'OakInventory'
+
+[09:21:12.041] [BankResearch] [INFO] Research button pressed
+[09:21:12.244] [BankResearch] [INFO] Research button pressed
+[09:21:12.375] [BankResearch] [INFO] Research button pressed
+[09:55:06.650] [BankResearch] [INFO] Debug mode enabled by user
+[09:55:06.650] [BankResearch] [INFO] ============================================================
+[09:55:06.650] [BankResearch] [INFO] Debug logging is now active!
+[09:55:06.650] [BankResearch] [INFO] All debug messages will be printed to console and saved to debug.log
+[09:55:06.650] [BankResearch] [INFO] ============================================================
+[09:55:06.651] [BankResearch] [INFO] Sort method changed to: Boividevngu
+[09:55:06.651] [BankResearch] [INFO] BankResearch v0.6.0 initialized
+[09:59:48.152] [BankResearch] [INFO] Sort button pressed, using method: Boividevngu
+[09:59:48.152] [BankResearch] [INFO] sort_bank_items called with method: Boividevngu
+[09:59:48.153] [BankResearch] [DEBUG] PlayerController found, attempting to sort bank using 'Boividevngu' method
+[09:59:48.153] [BankResearch] [ERROR] Error sorting bank: Couldn't find class 'OakInventory'
+[09:59:48.153] [BankResearch] [ERROR] Traceback: Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\Borderlands 3\sdk_mods\BankSort\__init__.py", line 437, in sort_bank_items
+    bank_objects = unrealsdk.find_all("OakInventory")
+ValueError: Couldn't find class 'OakInventory'
+
+[09:59:49.917] [BankResearch] [INFO] Research button pressed
+[09:59:52.017] [BankResearch] [INFO] Research button pressed
+[09:59:52.450] [BankResearch] [INFO] Sort button pressed, using method: Boividevngu
+[09:59:52.451] [BankResearch] [INFO] sort_bank_items called with method: Boividevngu
+[09:59:52.451] [BankResearch] [DEBUG] PlayerController found, attempting to sort bank using 'Boividevngu' method
+[09:59:52.451] [BankResearch] [ERROR] Error sorting bank: Couldn't find class 'OakInventory'
+[09:59:52.451] [BankResearch] [ERROR] Traceback: Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\Borderlands 3\sdk_mods\BankSort\__init__.py", line 437, in sort_bank_items
+    bank_objects = unrealsdk.find_all("OakInventory")
+ValueError: Couldn't find class 'OakInventory'
+
+[10:03:58.225] [BankResearch] [INFO] Debug mode enabled by user
+[10:03:58.225] [BankResearch] [INFO] ============================================================
+[10:03:58.225] [BankResearch] [INFO] Debug logging is now active!
+[10:03:58.225] [BankResearch] [INFO] All debug messages will be printed to console and saved to debug.log
+[10:03:58.225] [BankResearch] [INFO] ============================================================
+[10:03:58.226] [BankResearch] [INFO] Sort method changed to: Boividevngu
+[10:03:58.226] [BankResearch] [INFO] BankResearch v0.6.0 initialized
+[10:10:06.471] [BankResearch] [INFO] Debug mode enabled by user
+[10:10:06.471] [BankResearch] [INFO] ============================================================
+[10:10:06.471] [BankResearch] [INFO] Debug logging is now active!
+[10:10:06.471] [BankResearch] [INFO] All debug messages will be printed to console and saved to debug.log
+[10:10:06.471] [BankResearch] [INFO] ============================================================
+[10:10:06.471] [BankResearch] [INFO] Sort method changed to: Boividevngu
+[10:10:06.472] [BankResearch] [INFO] BankResearch v0.6.0 initialized
+[10:11:32.936] [BankResearch] [INFO] Sort button pressed, using method: Boividevngu
+[10:11:32.936] [BankResearch] [INFO] sort_bank_items called with method: Boividevngu
+[10:11:32.936] [BankResearch] [DEBUG] PlayerController found, attempting to sort bank using 'Boividevngu' method
+[10:11:32.936] [BankResearch] [ERROR] Error sorting bank: Couldn't find class 'OakInventory'
+[10:11:32.937] [BankResearch] [ERROR] Traceback: Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\Borderlands 3\sdk_mods\BankSort\__init__.py", line 437, in sort_bank_items
+    bank_objects = unrealsdk.find_all("OakInventory")
+ValueError: Couldn't find class 'OakInventory'
+
+[10:11:33.370] [BankResearch] [INFO] Research button pressed
+[11:07:44.926] [BankResearch] [INFO] Debug mode enabled by user
+[11:07:44.926] [BankResearch] [INFO] ============================================================
+[11:07:44.926] [BankResearch] [INFO] Debug logging is now active!
+[11:07:44.927] [BankResearch] [INFO] All debug messages will be printed to console and saved to debug.log
+[11:07:44.927] [BankResearch] [INFO] ============================================================
+[11:07:44.927] [BankResearch] [INFO] Sort method changed to: Boividevngu
+[11:07:44.927] [BankResearch] [INFO] BankResearch v0.6.1 initialized
+[11:19:43.008] [BankResearch] [INFO] Debug mode enabled by user
+[11:19:43.008] [BankResearch] [INFO] ============================================================
+[11:19:43.008] [BankResearch] [INFO] Debug logging is now active!
+[11:19:43.008] [BankResearch] [INFO] All debug messages will be printed to console and saved to debug.log
+[11:19:43.008] [BankResearch] [INFO] ============================================================
+[11:19:43.008] [BankResearch] [INFO] Sort method changed to: Boividevngu
+[11:19:43.009] [BankResearch] [INFO] BankResearch v0.6.1 initialized
+[11:21:26.751] [BankResearch] [INFO] Research button pressed
+[11:21:27.350] [BankResearch] [INFO] Sort button pressed, using method: Boividevngu
+[11:21:27.350] [BankResearch] [INFO] sort_bank_items called with method: Boividevngu
+[11:21:27.351] [BankResearch] [DEBUG] PlayerController found, attempting to sort bank using 'Boividevngu' method
+[11:21:27.351] [BankResearch] [ERROR] Error sorting bank: Couldn't find class 'OakInventory'
+[11:21:27.351] [BankResearch] [ERROR] Traceback: Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\Borderlands 3\sdk_mods\BankSort\__init__.py", line 447, in sort_bank_items
+    bank_objects = unrealsdk.find_all("OakInventory")
+ValueError: Couldn't find class 'OakInventory'
+
