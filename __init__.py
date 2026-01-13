@@ -18,14 +18,26 @@ import os
 import json
 from datetime import datetime
 
-__version__: str = "0.6.1"
-__version_info__: tuple[int, ... ] = (0, 6, 1)
+__version__: str = "0.6.2"
+__version_info__: tuple[int, ... ] = (0, 6, 2)
 
 # ==================== CONSTANTS ====================
 
 MOD_NAME = "BankResearch"
 OUTPUT_FILE = "bank_structure_dump.txt"
 JSON_FILE = "bank_structure_dump.json"
+
+# Possible class names for bank/inventory objects in Borderlands 3
+# The actual class name may vary by game version, so we try multiple options
+BANK_CLASS_NAMES = [
+    "BankInventory",
+    "OakInventory", 
+    "OakBank",
+    "InventoryComponent",
+    "BankComponent",
+    "OakInventoryItemPickup",
+    "OakStorageComponent"
+]
 
 # ==================== DEBUG SETTINGS ====================
 
@@ -324,17 +336,7 @@ def dump_player_controller() -> dict:
         lines.append("="*80)
         lines.append("")
         
-        search_classes = [
-            "BankInventory",
-            "OakInventory", 
-            "OakBank",
-            "InventoryComponent",
-            "BankComponent",
-            "OakInventoryItemPickup",
-            "OakStorageComponent"
-        ]
-        
-        for class_name in search_classes: 
+        for class_name in BANK_CLASS_NAMES: 
             try:
                 lines.append(f"Searching for: {class_name}")
                 debug_log(f"Searching for class: {class_name}", "DEBUG")
@@ -443,13 +445,34 @@ def sort_bank_items(method: str = "Boividevngu") -> None:
         debug_log(f"PlayerController found, attempting to sort bank using '{method}' method", "DEBUG")
         logging.info(f"[{MOD_NAME}] 🔄 Sorting bank items using '{method}' method...")
         
-        # Try to find bank inventory objects
-        bank_objects = unrealsdk.find_all("OakInventory")
-        debug_log(f"Found {len(bank_objects)} OakInventory objects", "DEBUG")
+        # Try to find bank inventory objects - try multiple possible class names
+        bank_objects = []
+        found_class_name = None
+        
+        for class_name in BANK_CLASS_NAMES:
+            try:
+                debug_log(f"Trying to find class: {class_name}", "DEBUG")
+                objects = unrealsdk.find_all(class_name)
+                if objects:
+                    bank_objects = objects
+                    found_class_name = class_name
+                    debug_log(f"Found {len(objects)} {class_name} objects", "INFO")
+                    logging.info(f"[{MOD_NAME}] ✅ Found {len(objects)} {class_name} objects")
+                    break  # Exit the for loop once we find valid objects
+            except ValueError as ve:
+                debug_log(f"Class {class_name} not found: {ve}", "DEBUG")
+                continue
+            except Exception as e:
+                debug_log(f"Error searching for {class_name}: {e}", "DEBUG")
+                continue
         
         if not bank_objects:
-            debug_log("No bank inventory objects found", "WARNING")
-            logging.warning(f"[{MOD_NAME}] ⚠️ No bank inventory found. Open bank first!")
+            debug_log("No bank inventory objects found with any class name", "WARNING")
+            logging.warning(f"[{MOD_NAME}] ⚠️ No bank inventory found. Please:")
+            logging.warning(f"[{MOD_NAME}]   1. Make sure you're in-game")
+            logging.warning(f"[{MOD_NAME}]   2. Open the bank")
+            logging.warning(f"[{MOD_NAME}]   3. Press NumPad8 to research bank structure")
+            logging.warning(f"[{MOD_NAME}]   4. Then try sorting again")
             return
         
         # Log the sorting operation
@@ -467,7 +490,8 @@ def sort_bank_items(method: str = "Boividevngu") -> None:
         # Placeholder for actual sorting logic - this would need game-specific implementation
         # For now, we'll just log that the sort was attempted
         logging.info(f"[{MOD_NAME}] ✅ Bank sort '{method}' triggered!")
-        logging.info(f"[{MOD_NAME}] ℹ️ Note: Full sorting implementation requires game API research")
+        logging.info(f"[{MOD_NAME}] ℹ️ Note: Actual sorting not yet implemented")
+        logging.info(f"[{MOD_NAME}] ℹ️ Press NumPad8 to research bank structure for implementation")
         debug_log(f"Bank sort '{method}' completed (placeholder)", "INFO")
         
     except Exception as e:
@@ -482,6 +506,7 @@ def do_research(_) -> None:
     """Keybind: NumPad8 to dump Bank structure"""
     debug_log("NumPad8 pressed - starting Bank structure research", "INFO")
     logging.info(f"[{MOD_NAME}] 🔍 Starting Bank structure research...")
+    logging.info(f"[{MOD_NAME}] ℹ️ This will help identify which game classes exist for bank sorting")
     logging.info(f"[{MOD_NAME}] Please wait...")
     
     result = dump_player_controller()
@@ -500,7 +525,7 @@ def do_research(_) -> None:
 def do_bank_sort(_) -> None:
     """Keybind: NumPad7 to sort Bank"""
     debug_log(f"NumPad7 pressed - triggering bank sort with method: {CURRENT_SORT_METHOD}", "INFO")
-    logging.info(f"[{MOD_NAME}] 🔄 Sorting bank...")
+    logging.info(f"[{MOD_NAME}] 🔄 Attempting to sort bank with method: {CURRENT_SORT_METHOD}")
     sort_bank_items(CURRENT_SORT_METHOD)
 
 def on_research_button(_: ButtonOption) -> None:
@@ -584,6 +609,7 @@ build_mod(
 
 logging.info("="*80)
 logging.info(f"[{MOD_NAME}] v{__version__} Loaded!")
+logging.info(f"[{MOD_NAME}] ℹ️ Press tilde (~) key twice to open console and see messages")
 logging.info(f"[{MOD_NAME}] Keybinds:")
 logging.info(f"[{MOD_NAME}]   NumPad7 - Sort Bank (current method: {CURRENT_SORT_METHOD})")
 logging.info(f"[{MOD_NAME}]   NumPad8 - Dump Bank Structure")
