@@ -443,13 +443,41 @@ def sort_bank_items(method: str = "Boividevngu") -> None:
         debug_log(f"PlayerController found, attempting to sort bank using '{method}' method", "DEBUG")
         logging.info(f"[{MOD_NAME}] 🔄 Sorting bank items using '{method}' method...")
         
-        # Try to find bank inventory objects
-        bank_objects = unrealsdk.find_all("OakInventory")
-        debug_log(f"Found {len(bank_objects)} OakInventory objects", "DEBUG")
+        # Try to find bank inventory objects - try multiple possible class names
+        bank_objects = []
+        search_classes = [
+            "BankInventory",
+            "OakInventory", 
+            "OakBank",
+            "InventoryComponent",
+            "BankComponent",
+            "OakInventoryItemPickup",
+            "OakStorageComponent"
+        ]
+        
+        for class_name in search_classes:
+            try:
+                debug_log(f"Trying to find class: {class_name}", "DEBUG")
+                objects = unrealsdk.find_all(class_name)
+                if objects:
+                    bank_objects = objects
+                    debug_log(f"Found {len(objects)} {class_name} objects", "INFO")
+                    logging.info(f"[{MOD_NAME}] ✅ Found {len(objects)} {class_name} objects")
+                    break
+            except ValueError as ve:
+                debug_log(f"Class {class_name} not found: {ve}", "DEBUG")
+                continue
+            except Exception as e:
+                debug_log(f"Error searching for {class_name}: {e}", "DEBUG")
+                continue
         
         if not bank_objects:
-            debug_log("No bank inventory objects found", "WARNING")
-            logging.warning(f"[{MOD_NAME}] ⚠️ No bank inventory found. Open bank first!")
+            debug_log("No bank inventory objects found with any class name", "WARNING")
+            logging.warning(f"[{MOD_NAME}] ⚠️ No bank inventory found. Please:")
+            logging.warning(f"[{MOD_NAME}]   1. Make sure you're in-game")
+            logging.warning(f"[{MOD_NAME}]   2. Open the bank")
+            logging.warning(f"[{MOD_NAME}]   3. Press NumPad8 to research bank structure")
+            logging.warning(f"[{MOD_NAME}]   4. Then try sorting again")
             return
         
         # Log the sorting operation
@@ -467,7 +495,8 @@ def sort_bank_items(method: str = "Boividevngu") -> None:
         # Placeholder for actual sorting logic - this would need game-specific implementation
         # For now, we'll just log that the sort was attempted
         logging.info(f"[{MOD_NAME}] ✅ Bank sort '{method}' triggered!")
-        logging.info(f"[{MOD_NAME}] ℹ️ Note: Full sorting implementation requires game API research")
+        logging.info(f"[{MOD_NAME}] ℹ️ Note: Actual sorting not yet implemented")
+        logging.info(f"[{MOD_NAME}] ℹ️ Press NumPad8 to research bank structure for implementation")
         debug_log(f"Bank sort '{method}' completed (placeholder)", "INFO")
         
     except Exception as e:
