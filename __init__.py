@@ -18,8 +18,8 @@ import os
 import json
 from datetime import datetime
 
-__version__: str = "0.6.1"
-__version_info__: tuple[int, ... ] = (0, 6, 1)
+__version__: str = "0.6.2"
+__version_info__: tuple[int, ... ] = (0, 6, 2)
 
 # ==================== CONSTANTS ====================
 
@@ -511,6 +511,7 @@ def do_research(_) -> None:
     """Keybind: NumPad8 to dump Bank structure"""
     debug_log("NumPad8 pressed - starting Bank structure research", "INFO")
     logging.info(f"[{MOD_NAME}] 🔍 Starting Bank structure research...")
+    logging.info(f"[{MOD_NAME}] ℹ️ This will help identify which game classes exist for bank sorting")
     logging.info(f"[{MOD_NAME}] Please wait...")
     
     result = dump_player_controller()
@@ -529,7 +530,7 @@ def do_research(_) -> None:
 def do_bank_sort(_) -> None:
     """Keybind: NumPad7 to sort Bank"""
     debug_log(f"NumPad7 pressed - triggering bank sort with method: {CURRENT_SORT_METHOD}", "INFO")
-    logging.info(f"[{MOD_NAME}] 🔄 Sorting bank...")
+    logging.info(f"[{MOD_NAME}] 🔄 Attempting to sort bank with method: {CURRENT_SORT_METHOD}")
     sort_bank_items(CURRENT_SORT_METHOD)
 
 def on_research_button(_: ButtonOption) -> None:
@@ -613,6 +614,7 @@ build_mod(
 
 logging.info("="*80)
 logging.info(f"[{MOD_NAME}] v{__version__} Loaded!")
+logging.info(f"[{MOD_NAME}] ℹ️ Press tilde (~) key twice to open console and see messages")
 logging.info(f"[{MOD_NAME}] Keybinds:")
 logging.info(f"[{MOD_NAME}]   NumPad7 - Sort Bank (current method: {CURRENT_SORT_METHOD})")
 logging.info(f"[{MOD_NAME}]   NumPad8 - Dump Bank Structure")
