@@ -36,6 +36,8 @@ DEBUG_ENABLED = False  # Will be controlled by options
 def debug_log(message: str, level: str = "INFO") -> None:
     """
     Debug logging function using SDK logging for console output.
+    Uses logging.info() for INFO, logging.warning() for WARNING,
+    logging.error() for ERROR, and logging.dev_warning() for DEBUG.
     Also logs to file when debug mode is enabled.
     
     Args:
