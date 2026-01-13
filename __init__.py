@@ -27,6 +27,18 @@ MOD_NAME = "BankResearch"
 OUTPUT_FILE = "bank_structure_dump.txt"
 JSON_FILE = "bank_structure_dump.json"
 
+# Possible class names for bank/inventory objects in Borderlands 3
+# The actual class name may vary by game version, so we try multiple options
+BANK_CLASS_NAMES = [
+    "BankInventory",
+    "OakInventory", 
+    "OakBank",
+    "InventoryComponent",
+    "BankComponent",
+    "OakInventoryItemPickup",
+    "OakStorageComponent"
+]
+
 # ==================== DEBUG SETTINGS ====================
 
 DEBUG_ENABLED = False  # Will be controlled by options
@@ -324,17 +336,7 @@ def dump_player_controller() -> dict:
         lines.append("="*80)
         lines.append("")
         
-        search_classes = [
-            "BankInventory",
-            "OakInventory", 
-            "OakBank",
-            "InventoryComponent",
-            "BankComponent",
-            "OakInventoryItemPickup",
-            "OakStorageComponent"
-        ]
-        
-        for class_name in search_classes: 
+        for class_name in BANK_CLASS_NAMES: 
             try:
                 lines.append(f"Searching for: {class_name}")
                 debug_log(f"Searching for class: {class_name}", "DEBUG")
@@ -445,25 +447,18 @@ def sort_bank_items(method: str = "Boividevngu") -> None:
         
         # Try to find bank inventory objects - try multiple possible class names
         bank_objects = []
-        search_classes = [
-            "BankInventory",
-            "OakInventory", 
-            "OakBank",
-            "InventoryComponent",
-            "BankComponent",
-            "OakInventoryItemPickup",
-            "OakStorageComponent"
-        ]
+        found_class_name = None
         
-        for class_name in search_classes:
+        for class_name in BANK_CLASS_NAMES:
             try:
                 debug_log(f"Trying to find class: {class_name}", "DEBUG")
                 objects = unrealsdk.find_all(class_name)
                 if objects:
                     bank_objects = objects
+                    found_class_name = class_name
                     debug_log(f"Found {len(objects)} {class_name} objects", "INFO")
                     logging.info(f"[{MOD_NAME}] ✅ Found {len(objects)} {class_name} objects")
-                    break
+                    break  # Exit the for loop once we find valid objects
             except ValueError as ve:
                 debug_log(f"Class {class_name} not found: {ve}", "DEBUG")
                 continue
