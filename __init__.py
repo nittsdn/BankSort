@@ -1,6 +1,11 @@
 """
-BankResearch - Phase 0.7: Enhanced Bank Structure Discovery
-Dumps Bank and Inventory structures to understand the API
+BankResearch - Phase 0.7.1: Enhanced Bank Structure Discovery with Sorting Logic
+Dumps Bank and Inventory structures to understand the API and implements item sorting
+
+Version 0.7.1: Added sorting logic implementation
+- Added item information extraction from OakInventoryBalanceStateComponent
+- Implemented sorting algorithms for all methods (rarity, type, name, level)
+- Console output of sorted results
 
 Version 0.7.0: Enhanced with comprehensive scanning inspired by apocalyptech/bl3data
 - Added MOD_RELATED_CLASSES scanning for comprehensive data extraction
@@ -24,7 +29,7 @@ import os
 import json
 from datetime import datetime
 
-__version__: str = "0.7.0"
+__version__: str = "0.7.1"
 # Parse version info from version string to keep them in sync
 __version_info__: tuple[int, ...] = tuple(int(x) for x in __version__.split('.'))
 

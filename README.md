@@ -1,6 +1,6 @@
 # BankSort - Borderlands 3 Bank Research & Sorting Mod
 
-![Version](https://img.shields.io/badge/version-0.7.0-blue)
+![Version](https://img.shields.io/badge/version-0.7.1-blue)
 ![BL3](https://img.shields.io/badge/Borderlands_3-Compatible-green)
 ![Python](https://img.shields.io/badge/python-3.x-blue)
 
@@ -8,16 +8,18 @@ A Borderlands 3 mod for researching and sorting bank inventory, with comprehensi
 
 ## 🎯 Features
 
-### Current (v0.7.0)
+### Current (v0.7.1)
+- ✅ **Item Information Extraction** - Automatically extract item properties
+- ✅ **Sorting Logic Implementation** - Sort by rarity, type, name, level
 - ✅ **Enhanced Bank Structure Scanning** - Comprehensive object introspection
 - ✅ **Categorized Data Analysis** - Inventory, Bank, Items, Balance, Serial data
 - ✅ **Multiple Output Formats** - Text, JSON, and focused summaries
 - ✅ **Debug Logging System** - Detailed operation tracking
-- ✅ **Sort Method Selection** - UI for choosing sort algorithm (placeholder)
+- ✅ **Sort Method Selection** - UI for choosing sort algorithm
 - ✅ **Easy-to-Use Keybinds** - NumPad7 for sort, NumPad8 for research
 
 ### Coming Soon
-- 🔄 **Actual Sorting Implementation** - Based on discovered APIs
+- 🔄 **Physical Item Reordering** - Apply sorted order to actual bank (requires API discovery)
 - 🎯 **Item Filtering** - Filter by rarity, type, level
 - ⚖️ **Balance Data Analysis** - Deep item stat inspection
 
@@ -37,11 +39,12 @@ A Borderlands 3 mod for researching and sorting bank inventory, with comprehensi
    - `bank_structure_dump.txt` - Full detailed dump
    - `bank_structure_dump.json` - Structured data
 
-### Sort Bank (Placeholder)
+### Sort Bank
 1. Press **NumPad7** OR
 2. Use mod menu → "Sort Bank Now"
+3. View sorted results in console
 
-> ⚠️ **Note**: Sorting UI is implemented but actual item reordering requires API discovery through scanning.
+> ⚠️ **Note**: Sorting logic is implemented and shows results in console. Physical reordering in game requires additional API discovery through scanning.
 
 ## 📖 Documentation
 
@@ -139,6 +142,12 @@ Feedback and contributions welcome! Particularly:
 
 ## 📝 Version History
 
+- **v0.7.1** (2024-01) - Sorting logic implementation
+  - Item information extraction
+  - Sorting algorithms for all methods
+  - Console output of sorted results
+  - Ready for physical reordering API discovery
+
 - **v0.7.0** (2024-01) - Enhanced scanning with bl3data techniques
   - 19+ classes scanned
   - Categorized data analysis
@@ -166,8 +175,8 @@ See repository license file.
 
 ---
 
-**Current Version**: 0.7.0  
-**Status**: ✅ Research phase complete, ready for implementation  
+**Current Version**: 0.7.1  
+**Status**: ✅ Sorting logic complete, physical reordering requires API discovery  
 **Compatibility**: Borderlands 3 with Oak Mod Manager
 
 For questions or issues, please open a GitHub issue.

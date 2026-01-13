@@ -7,7 +7,7 @@ BankResearch là mod cho Borderlands 3 giúp bạn:
 - ✅ Research/debug Bank structure để phát triển tính năng mới
 - ✅ Debug logging chi tiết để tìm lỗi
 
-**Version hiện tại:** v0.6.0
+**Version hiện tại:** v0.7.1
 
 ---
 
@@ -67,7 +67,10 @@ Mở mod menu trong game và tìm "Bank Research", bạn sẽ thấy:
 
 **Kết quả:**
 - Console sẽ hiện message
-- Items sẽ được sắp xếp (nếu đã implement đủ API)
+- Mod sẽ phân tích và sắp xếp items logic
+- Console sẽ hiển thị danh sách items đã được sắp xếp
+
+⚠️ **Lưu ý:** Hiện tại mod đã implement logic sắp xếp và hiển thị kết quả, nhưng việc thay đổi vị trí thực tế trong game cần thêm API discovery
 
 ### Cách Bật Debug Mode
 
