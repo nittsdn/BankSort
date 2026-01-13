@@ -1,0 +1,93 @@
+[11:32:41.428] [BankResearch] [INFO] Debug mode enabled by user
+[11:32:41.429] [BankResearch] [INFO] ============================================================
+[11:32:41.429] [BankResearch] [INFO] Debug logging is now active!
+[11:32:41.429] [BankResearch] [INFO] All debug messages will be printed to console and saved to debug.log
+[11:32:41.429] [BankResearch] [INFO] ============================================================
+[11:32:41.429] [BankResearch] [INFO] Sort method changed to: Boividevngu
+[11:32:41.430] [BankResearch] [INFO] BankResearch v0.6.1 initialized
+[13:32:30.159] [BankResearch] [INFO] Debug mode enabled by user
+[13:32:30.159] [BankResearch] [INFO] ============================================================
+[13:32:30.165] [BankResearch] [INFO] Debug logging is now active!
+[13:32:30.165] [BankResearch] [INFO] All debug messages will be printed to console and saved to debug.log
+[13:32:30.165] [BankResearch] [INFO] ============================================================
+[13:32:30.165] [BankResearch] [INFO] Sort method changed to: Boividevngu
+[13:32:30.166] [BankResearch] [INFO] BankResearch v0.7.0 initialized
+[14:32:29.034] [BankResearch] [INFO] Debug mode enabled by user
+[14:32:29.034] [BankResearch] [INFO] ============================================================
+[14:32:29.034] [BankResearch] [INFO] Debug logging is now active!
+[14:32:29.034] [BankResearch] [INFO] All debug messages will be printed to console and saved to debug.log
+[14:32:29.034] [BankResearch] [INFO] ============================================================
+[14:32:29.034] [BankResearch] [INFO] Sort method changed to: Boividevngu
+[14:32:29.035] [BankResearch] [INFO] BankResearch v0.7.0 initialized
+[14:35:08.120] [BankResearch] [INFO] Sort button pressed, using method: Boividevngu
+[14:35:08.120] [BankResearch] [INFO] sort_bank_items called with method: Boividevngu
+[14:35:08.121] [BankResearch] [DEBUG] PlayerController found, attempting to sort bank using 'Boividevngu' method
+[14:35:08.121] [BankResearch] [DEBUG] Trying to find class: BankInventory
+[14:35:08.121] [BankResearch] [DEBUG] Class BankInventory not found: Couldn't find class 'BankInventory'
+[14:35:08.121] [BankResearch] [DEBUG] Trying to find class: OakInventory
+[14:35:08.121] [BankResearch] [DEBUG] Class OakInventory not found: Couldn't find class 'OakInventory'
+[14:35:08.121] [BankResearch] [DEBUG] Trying to find class: OakBank
+[14:35:08.122] [BankResearch] [DEBUG] Class OakBank not found: Couldn't find class 'OakBank'
+[14:35:08.122] [BankResearch] [DEBUG] Trying to find class: InventoryComponent
+[14:35:08.122] [BankResearch] [DEBUG] Class InventoryComponent not found: Couldn't find class 'InventoryComponent'
+[14:35:08.122] [BankResearch] [DEBUG] Trying to find class: BankComponent
+[14:35:08.122] [BankResearch] [DEBUG] Class BankComponent not found: Couldn't find class 'BankComponent'
+[14:35:08.122] [BankResearch] [DEBUG] Trying to find class: OakInventoryItemPickup
+[14:35:08.137] [BankResearch] [INFO] Found 1 OakInventoryItemPickup objects
+[14:35:08.137] [BankResearch] [INFO] Starting sort operation with 1 bank objects
+[14:35:08.137] [BankResearch] [INFO] Bank sort 'Boividevngu' completed (placeholder)
+[14:35:08.955] [BankResearch] [INFO] Research button pressed
+[14:38:15.424] [BankResearch] [INFO] Sort button pressed, using method: Boividevngu
+[14:38:15.424] [BankResearch] [INFO] sort_bank_items called with method: Boividevngu
+[14:38:15.424] [BankResearch] [DEBUG] PlayerController found, attempting to sort bank using 'Boividevngu' method
+[14:38:15.424] [BankResearch] [DEBUG] Trying to find class: BankInventory
+[14:38:15.425] [BankResearch] [DEBUG] Class BankInventory not found: Couldn't find class 'BankInventory'
+[14:38:15.425] [BankResearch] [DEBUG] Trying to find class: OakInventory
+[14:38:15.425] [BankResearch] [DEBUG] Class OakInventory not found: Couldn't find class 'OakInventory'
+[14:38:15.425] [BankResearch] [DEBUG] Trying to find class: OakBank
+[14:38:15.425] [BankResearch] [DEBUG] Class OakBank not found: Couldn't find class 'OakBank'
+[14:38:15.426] [BankResearch] [DEBUG] Trying to find class: InventoryComponent
+[14:38:15.426] [BankResearch] [DEBUG] Class InventoryComponent not found: Couldn't find class 'InventoryComponent'
+[14:38:15.426] [BankResearch] [DEBUG] Trying to find class: BankComponent
+[14:38:15.426] [BankResearch] [DEBUG] Class BankComponent not found: Couldn't find class 'BankComponent'
+[14:38:15.426] [BankResearch] [DEBUG] Trying to find class: OakInventoryItemPickup
+[14:38:15.440] [BankResearch] [INFO] Found 1 OakInventoryItemPickup objects
+[14:38:15.441] [BankResearch] [INFO] Starting sort operation with 1 bank objects
+[14:38:15.441] [BankResearch] [INFO] Bank sort 'Boividevngu' completed (placeholder)
+[14:38:16.526] [BankResearch] [INFO] Research button pressed
+[14:38:17.726] [BankResearch] [INFO] Research button pressed
+[14:38:17.892] [BankResearch] [INFO] Research button pressed
+[14:38:18.292] [BankResearch] [INFO] Sort button pressed, using method: Boividevngu
+[14:38:18.293] [BankResearch] [INFO] sort_bank_items called with method: Boividevngu
+[14:38:18.293] [BankResearch] [DEBUG] PlayerController found, attempting to sort bank using 'Boividevngu' method
+[14:38:18.293] [BankResearch] [DEBUG] Trying to find class: BankInventory
+[14:38:18.293] [BankResearch] [DEBUG] Class BankInventory not found: Couldn't find class 'BankInventory'
+[14:38:18.293] [BankResearch] [DEBUG] Trying to find class: OakInventory
+[14:38:18.293] [BankResearch] [DEBUG] Class OakInventory not found: Couldn't find class 'OakInventory'
+[14:38:18.294] [BankResearch] [DEBUG] Trying to find class: OakBank
+[14:38:18.294] [BankResearch] [DEBUG] Class OakBank not found: Couldn't find class 'OakBank'
+[14:38:18.294] [BankResearch] [DEBUG] Trying to find class: InventoryComponent
+[14:38:18.294] [BankResearch] [DEBUG] Class InventoryComponent not found: Couldn't find class 'InventoryComponent'
+[14:38:18.294] [BankResearch] [DEBUG] Trying to find class: BankComponent
+[14:38:18.294] [BankResearch] [DEBUG] Class BankComponent not found: Couldn't find class 'BankComponent'
+[14:38:18.294] [BankResearch] [DEBUG] Trying to find class: OakInventoryItemPickup
+[14:38:18.309] [BankResearch] [INFO] Found 1 OakInventoryItemPickup objects
+[14:38:18.309] [BankResearch] [INFO] Starting sort operation with 1 bank objects
+[14:38:18.309] [BankResearch] [INFO] Bank sort 'Boividevngu' completed (placeholder)
+[14:38:18.424] [BankResearch] [INFO] Sort button pressed, using method: Boividevngu
+[14:38:18.424] [BankResearch] [INFO] sort_bank_items called with method: Boividevngu
+[14:38:18.424] [BankResearch] [DEBUG] PlayerController found, attempting to sort bank using 'Boividevngu' method
+[14:38:18.424] [BankResearch] [DEBUG] Trying to find class: BankInventory
+[14:38:18.424] [BankResearch] [DEBUG] Class BankInventory not found: Couldn't find class 'BankInventory'
+[14:38:18.425] [BankResearch] [DEBUG] Trying to find class: OakInventory
+[14:38:18.425] [BankResearch] [DEBUG] Class OakInventory not found: Couldn't find class 'OakInventory'
+[14:38:18.425] [BankResearch] [DEBUG] Trying to find class: OakBank
+[14:38:18.425] [BankResearch] [DEBUG] Class OakBank not found: Couldn't find class 'OakBank'
+[14:38:18.425] [BankResearch] [DEBUG] Trying to find class: InventoryComponent
+[14:38:18.425] [BankResearch] [DEBUG] Class InventoryComponent not found: Couldn't find class 'InventoryComponent'
+[14:38:18.426] [BankResearch] [DEBUG] Trying to find class: BankComponent
+[14:38:18.426] [BankResearch] [DEBUG] Class BankComponent not found: Couldn't find class 'BankComponent'
+[14:38:18.426] [BankResearch] [DEBUG] Trying to find class: OakInventoryItemPickup
+[14:38:18.440] [BankResearch] [INFO] Found 1 OakInventoryItemPickup objects
+[14:38:18.440] [BankResearch] [INFO] Starting sort operation with 1 bank objects
+[14:38:18.440] [BankResearch] [INFO] Bank sort 'Boividevngu' completed (placeholder)
