@@ -18,8 +18,8 @@ import os
 import json
 from datetime import datetime
 
-__version__: str = "0.6.0"
-__version_info__: tuple[int, ... ] = (0, 6, 0)
+__version__: str = "0.6.1"
+__version_info__: tuple[int, ... ] = (0, 6, 1)
 
 # ==================== CONSTANTS ====================
 
