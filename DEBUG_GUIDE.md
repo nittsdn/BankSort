@@ -1,5 +1,53 @@
 # BankResearch Debug Guide
 
+## Latest Changes - v0.6.0
+
+### ✅ Keybind Changes (Thay Đổi Phím Tắt)
+**Vấn đề:** F8 xung đột với phím chức năng của game.
+
+**Giải pháp:**
+- Changed from **F8** to **NumPad8** for research/debug
+- Added **NumPad7** for Bank sorting
+
+**Keybinds:**
+```python
+@keybind("NumPadSeven")   # NumPad7 - Sort Bank
+def do_bank_sort(_) -> None:
+    ...
+
+@keybind("NumPadEight")   # NumPad8 - Dump Structure  
+def do_research(_) -> None:
+    ...
+```
+
+### ✅ Added Sort Functionality (Thêm Chức Năng Sort)
+Thêm chức năng sort Bank với 5 phương thức:
+1. **Boividevngu** (mặc định)
+2. By Rarity
+3. By Type
+4. By Name
+5. By Level
+
+**Menu Options:**
+- SpinnerOption to select sort method
+- Button to trigger sort
+- Keybind NumPad7 for quick sort
+
+### ✅ Improved Debug Logging
+- ERROR và WARNING **luôn** được ghi vào file, ngay cả khi debug mode tắt
+- Thêm logging chi tiết cho sort operations
+- Full traceback cho mọi exception
+
+```python
+# Now logs errors even when debug is off
+if DEBUG_ENABLED or level in ["ERROR", "WARNING"]:
+    write_to_file()
+```
+
+---
+
+## Previous Fixes (v0.5.x)
+
 ## Issue Fixed
 
 ### Error

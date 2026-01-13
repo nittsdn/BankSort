@@ -8,7 +8,7 @@ if True:
 
 import unrealsdk
 from mods_base import build_mod, hook, get_pc
-from mods_base.options import ButtonOption, GroupedOption, BoolOption
+from mods_base.options import ButtonOption, GroupedOption, BoolOption, SpinnerOption
 from mods_base.keybinds import keybind
 from unrealsdk.hooks import Type
 from unrealsdk.unreal import UObject, WrappedStruct, BoundFunction
@@ -17,8 +17,8 @@ import os
 import json
 from datetime import datetime
 
-__version__: str = "0.5.2"
-__version_info__: tuple[int, ... ] = (0, 5, 2)
+__version__: str = "0.6.0"
+__version_info__: tuple[int, ... ] = (0, 6, 0)
 
 # ==================== CONSTANTS ====================
 
@@ -42,6 +42,8 @@ def debug_log(message: str, level: str = "INFO") -> None:
         level: Log level (INFO, DEBUG, WARNING, ERROR)
     """
     global DEBUG_ENABLED
+    
+    # Early return for non-critical messages when debug is off (performance optimization)
     if not DEBUG_ENABLED and level not in ["ERROR", "WARNING"]:
         return
     
@@ -52,8 +54,8 @@ def debug_log(message: str, level: str = "INFO") -> None:
     if level in ["ERROR", "WARNING"] or DEBUG_ENABLED:
         print(formatted_msg)
     
-    # Log to file if debug enabled
-    if DEBUG_ENABLED:
+    # Log to file if debug enabled or if it's an error/warning
+    if DEBUG_ENABLED or level in ["ERROR", "WARNING"]:
         try:
             mod_dir = get_mod_directory()
             # Ensure directory exists
@@ -400,10 +402,75 @@ def save_dump_to_file(result: dict) -> None:
 
 # ==================== KEYBIND & BUTTON ====================
 
-@keybind("F8")
+# ==================== BANK SORT FUNCTIONS ====================
+
+SORT_METHODS = {
+    "Boividevngu": "boividevngu",
+    "By Rarity": "rarity",
+    "By Type": "type",
+    "By Name": "name",
+    "By Level": "level"
+}
+
+CURRENT_SORT_METHOD = "Boividevngu"  # Default sort method
+
+def sort_bank_items(method: str = "Boividevngu") -> None:
+    """
+    Sort items in the bank based on the selected method.
+    
+    Args:
+        method: Sort method name (Boividevngu, By Rarity, By Type, By Name, By Level)
+    """
+    debug_log(f"sort_bank_items called with method: {method}", "INFO")
+    
+    try:
+        pc = get_pc()
+        if not pc:
+            debug_log("PlayerController not found - cannot sort bank", "WARNING")
+            print(f"[{MOD_NAME}] ⚠️ Please load into game first!")
+            return
+        
+        debug_log(f"PlayerController found, attempting to sort bank using '{method}' method", "DEBUG")
+        print(f"[{MOD_NAME}] 🔄 Sorting bank items using '{method}' method...")
+        
+        # Try to find bank inventory objects
+        bank_objects = unrealsdk.find_all("OakInventory")
+        debug_log(f"Found {len(bank_objects)} OakInventory objects", "DEBUG")
+        
+        if not bank_objects:
+            debug_log("No bank inventory objects found", "WARNING")
+            print(f"[{MOD_NAME}] ⚠️ No bank inventory found. Open bank first!")
+            return
+        
+        # Log the sorting operation
+        debug_log(f"Starting sort operation with {len(bank_objects)} bank objects", "INFO")
+        
+        # TODO: Implement actual sorting logic based on Bank API research
+        # Steps needed:
+        # 1. Run NumPad8 to dump Bank structure and understand the API
+        # 2. Find methods to get items list from bank_objects
+        # 3. Implement sorting algorithms for each method (Boividevngu, Rarity, Type, Name, Level)
+        # 4. Find methods to reorder/update items in the bank
+        # 5. Test each sort method in-game
+        # Reference: See bank_structure_dump.txt and bank_structure_dump.json for API details
+        
+        # Placeholder for actual sorting logic - this would need game-specific implementation
+        # For now, we'll just log that the sort was attempted
+        print(f"[{MOD_NAME}] ✅ Bank sort '{method}' triggered!")
+        print(f"[{MOD_NAME}] ℹ️ Note: Full sorting implementation requires game API research")
+        debug_log(f"Bank sort '{method}' completed (placeholder)", "INFO")
+        
+    except Exception as e:
+        import traceback
+        error_msg = f"Error sorting bank: {e}"
+        debug_log(error_msg, "ERROR")
+        debug_log(f"Traceback: {traceback.format_exc()}", "ERROR")
+        print(f"[{MOD_NAME}] ❌ {error_msg}")
+
+@keybind("NumPadEight")
 def do_research(_) -> None:
-    """Keybind: F8 to dump Bank structure"""
-    debug_log("F8 pressed - starting Bank structure research", "INFO")
+    """Keybind: NumPad8 to dump Bank structure"""
+    debug_log("NumPad8 pressed - starting Bank structure research", "INFO")
     print(f"[{MOD_NAME}] 🔍 Starting Bank structure research...")
     print(f"[{MOD_NAME}] Please wait...")
     
@@ -418,6 +485,13 @@ def do_research(_) -> None:
     else:
         print(f"[{MOD_NAME}] ❌ Research failed: {result.get('error', 'Unknown error')}")
         debug_log(f"Research failed: {result.get('error', 'Unknown error')}", "ERROR")
+
+@keybind("NumPadSeven")
+def do_bank_sort(_) -> None:
+    """Keybind: NumPad7 to sort Bank"""
+    debug_log(f"NumPad7 pressed - triggering bank sort with method: {CURRENT_SORT_METHOD}", "INFO")
+    print(f"[{MOD_NAME}] 🔄 Sorting bank...")
+    sort_bank_items(CURRENT_SORT_METHOD)
 
 def on_research_button(_: ButtonOption) -> None:
     """Button callback for manual research"""
@@ -440,6 +514,18 @@ def on_debug_toggle(option: BoolOption, new_value: bool) -> None:
         debug_log("Debug mode disabled by user", "INFO")
         print(f"[{MOD_NAME}] 🐛 Debug mode DISABLED")
 
+def on_sort_method_change(option: SpinnerOption, new_value: str) -> None:
+    """Handle sort method change"""
+    global CURRENT_SORT_METHOD
+    CURRENT_SORT_METHOD = new_value
+    debug_log(f"Sort method changed to: {new_value}", "INFO")
+    print(f"[{MOD_NAME}] 🔄 Sort method set to: {new_value}")
+
+def on_sort_button(_: ButtonOption) -> None:
+    """Button callback for sorting bank"""
+    debug_log(f"Sort button pressed, using method: {CURRENT_SORT_METHOD}", "INFO")
+    sort_bank_items(CURRENT_SORT_METHOD)
+
 # ==================== OPTIONS ====================
 
 debug_option = BoolOption(
@@ -450,9 +536,23 @@ debug_option = BoolOption(
     on_change=on_debug_toggle
 )
 
+sort_method_option = SpinnerOption(
+    "🔄 Sort Method",
+    value="Boividevngu",
+    choices=list(SORT_METHODS.keys()),
+    description="Select the method to sort bank items. Press NumPad7 or use the button below to sort.",
+    on_change=on_sort_method_change
+)
+
+sort_button = ButtonOption(
+    "🔄 Sort Bank Now",
+    description="Sort bank items using the selected method (or press NumPad7)",
+    on_press=on_sort_button
+)
+
 research_button = ButtonOption(
     "🔍 Dump Bank Structure",
-    description="Press to dump Bank/Inventory structure to files",
+    description="Press to dump Bank/Inventory structure to files (or press NumPad8)",
     on_press=on_research_button
 )
 
@@ -460,6 +560,8 @@ main_group = GroupedOption(
     "Bank Research",
     children=[
         debug_option,
+        sort_method_option,
+        sort_button,
         research_button,
     ]
 )
@@ -472,10 +574,12 @@ build_mod(
 
 print("="*80)
 print(f"[{MOD_NAME}] v{__version__} Loaded!")
-print(f"[{MOD_NAME}] Press F8 or use mod menu to dump Bank structure")
+print(f"[{MOD_NAME}] Keybinds:")
+print(f"[{MOD_NAME}]   NumPad7 - Sort Bank (current method: {CURRENT_SORT_METHOD})")
+print(f"[{MOD_NAME}]   NumPad8 - Dump Bank Structure")
 print(f"[{MOD_NAME}] 🐛 Debug mode: {'ENABLED' if DEBUG_ENABLED else 'DISABLED'} (toggle in options)")
-print(f"[{MOD_NAME}] Output files: {OUTPUT_FILE}, {JSON_FILE}")
-print(f"[{MOD_NAME}] Debug log: debug.log")
+print(f"[{MOD_NAME}] 📁 Available sort methods: {', '.join(SORT_METHODS.keys())}")
+print(f"[{MOD_NAME}] Output files: {OUTPUT_FILE}, {JSON_FILE}, debug.log")
 print(f"[{MOD_NAME}] Location: {get_mod_directory()}")
 print("="*80)
 

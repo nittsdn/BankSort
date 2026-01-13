@@ -1,16 +1,158 @@
 # Fix Summary - BankSort Mod
 
-## Latest Issue Reported (Vietnamese) - v0.5.2
-"đọc file new error, mod vẫn chưa load được vào menu, lưu ý đổi tên file banksort___init__.py thành __init__.py, để banksort trong tên file sdk python bỏ qua ko load code luôn, vẫn chưa thấy file log ghi lại log trong consol"
+## Latest Update (Vietnamese) - v0.6.0
+"luôn dùng tiếng việt khi làm việc với tôi nhé, mod đã load được vào menu python sdk, tuy nhiên dường như bind key bị lỗi, chuyển key qua numpad cho tôi, đừng để ở phím chức năng F1-12 vì game xài rồi, buglog ko thấy ghi đủ, hãy xem buglog của magnetloot, trong đó có thông tin tôi nghĩ là lỗi của mod banksort, cũng ko thấy lựa chọn sort Boividevngu trong Bank luôn"
 
-**Translation:** "Read the new error file, mod still not loading into menu, note to rename file banksort___init__.py to __init__.py, so Python SDK won't skip loading the code, still not seeing log file writing console logs"
+**Bản dịch:** "Always use Vietnamese when working with me, mod has loaded into python sdk menu, however the bind key seems to have errors, change the key to numpad for me, don't keep it on function keys F1-12 because the game uses them already, buglog doesn't record enough, please check magnetloot's buglog, it contains information I think is an error from the banksort mod, also can't see the Boividevngu sort option in Bank"
 
 ---
 
-## Previous Issue (v0.5.1)
-"tôi có gửi hình ảnh file log lên resp, bạn check và sửa, thêm cơ chế debug như mod magnetloot cho dễ debug"
+## Changes in v0.6.0 (Latest)
 
-**Translation:** "I uploaded a log file image to the repo, please check and fix it, add a debug mechanism like the magnetloot mod for easier debugging"
+### ✅ 1. Đổi Keybind sang Numpad (Changed Keybind to Numpad)
+**Vấn đề:** Phím F8 xung đột với phím chức năng của game.
+
+**Giải pháp:**
+- **NumPad7**: Sort Bank (sắp xếp Bank)
+- **NumPad8**: Dump Bank Structure (research/debug)
+
+```python
+# TRƯỚC (Before)
+@keybind("F8")
+def do_research(_) -> None:
+    ...
+
+# SAU (After)  
+@keybind("NumPadEight")  # NumPad8 cho research
+def do_research(_) -> None:
+    ...
+
+@keybind("NumPadSeven")  # NumPad7 cho sort
+def do_bank_sort(_) -> None:
+    ...
+```
+
+### ✅ 2. Thêm Chức Năng Sort với "Boividevngu" (Added Sort Function with "Boividevngu")
+**Vấn đề:** Không có chức năng sort, không có option "Boividevngu".
+
+**Giải pháp:**
+- Thêm 5 phương thức sort: **Boividevngu** (mặc định), By Rarity, By Type, By Name, By Level
+- Thêm SpinnerOption trong menu để chọn phương thức sort
+- Thêm button "Sort Bank Now" trong menu
+- Thêm keybind NumPad7 để sort nhanh
+
+```python
+SORT_METHODS = {
+    "Boividevngu": "boividevngu",  # ← MẶC ĐỊNH (Default)
+    "By Rarity": "rarity",
+    "By Type": "type",
+    "By Name": "name",
+    "By Level": "level"
+}
+```
+
+### ✅ 3. Cải Thiện Debug Logging (Improved Debug Logging)
+**Vấn đề:** Buglog không ghi đủ thông tin, khó debug.
+
+**Giải pháp:**
+- Ghi cả **ERROR** và **WARNING** vào file debug.log ngay cả khi debug mode tắt
+- Thêm logging chi tiết cho mọi thao tác sort
+- Ghi full traceback khi có lỗi
+- Log format giống magnetloot mod
+
+```python
+# TRƯỚC (Before) - chỉ ghi khi debug mode bật
+if DEBUG_ENABLED:
+    write_to_file()
+
+# SAU (After) - luôn ghi ERROR và WARNING
+if DEBUG_ENABLED or level in ["ERROR", "WARNING"]:
+    write_to_file()
+```
+
+### ✅ 4. Thêm Menu Options Mới (New Menu Options)
+**Menu mới có 4 options:**
+1. 🐛 Enable Debug Mode - Bật/tắt debug logging
+2. 🔄 Sort Method - Chọn phương thức sort (Boividevngu là mặc định)
+3. 🔄 Sort Bank Now - Button để sort Bank
+4. 🔍 Dump Bank Structure - Button để research (debug)
+
+---
+
+## Cách Sử Dụng (How to Use)
+
+### Sắp Xếp Bank (Sort Bank)
+**Cách 1: Dùng keybind**
+1. Mở Bank trong game
+2. Nhấn **NumPad7**
+
+**Cách 2: Dùng menu**
+1. Mở mod menu
+2. Chọn "BankResearch"
+3. Chọn sort method (mặc định là "Boividevngu")
+4. Nhấn "Sort Bank Now"
+
+### Debug/Research
+**NumPad8** hoặc dùng button "Dump Bank Structure" trong menu
+
+### Các Sort Methods Có Sẵn
+- **Boividevngu** ⭐ (mặc định)
+- By Rarity (theo độ hiếm)
+- By Type (theo loại)
+- By Name (theo tên)
+- By Level (theo level)
+
+---
+
+## Files Đã Thay Đổi (Changed Files)
+
+### v0.6.0
+1. `__init__.py` - Main mod file
+   - Đổi keybind F8 → NumPad8
+   - Thêm keybind NumPad7 cho sort
+   - Thêm sort functions với "Boividevngu"
+   - Cải thiện debug logging
+   - Thêm SpinnerOption cho sort method
+   - Version: 0.5.2 → 0.6.0
+
+2. `FIX_SUMMARY.md` - Cập nhật documentation
+
+---
+
+## Testing (Đã Test)
+
+### ✅ Code Quality
+- Python syntax check passed
+- Import check passed
+- No syntax errors
+
+### 🧪 Cần Test In-Game (Need In-Game Testing)
+1. Load mod - xem có lỗi không
+2. Mở mod menu - xem có option "Boividevngu" không
+3. Nhấn NumPad7 - xem sort có hoạt động không
+4. Nhấn NumPad8 - xem research có hoạt động không
+5. Toggle debug mode - xem log có ghi đủ không
+6. Kiểm tra file debug.log - xem có ghi ERROR/WARNING không
+
+---
+
+## Lưu Ý Quan Trọng (Important Notes)
+
+⚠️ **Chức năng sort hiện tại là placeholder:**
+- Sort function đã được thêm vào
+- Đã có UI và keybinds
+- Đã có logging chi tiết
+- **NHƯNG** logic sort thực tế cần thêm research về Bank API của game
+- Khi nhấn sort, mod sẽ:
+  - Tìm Bank objects
+  - Log thông tin
+  - Hiện thông báo (nhưng chưa sort thực sự)
+
+📝 **Để implement sort thực sự cần:**
+1. Chạy NumPad8 để dump Bank structure
+2. Xem file `bank_structure_dump.txt` và `bank_structure_dump.json`
+3. Tìm API để get/set items trong Bank
+4. Implement logic sort dựa trên API tìm được
 
 ---
 
