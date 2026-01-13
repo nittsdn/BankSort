@@ -38,13 +38,13 @@ SUMMARY_FILE = "mod_data_summary.txt"
 # Possible class names for bank/inventory objects in Borderlands 3
 # The actual class name may vary by game version, so we try multiple options
 # Expanded based on bl3data research patterns
+# Note: Removed OakInventoryItemPickup from this list - it's for ground item pickups, not bank inventory
 BANK_CLASS_NAMES = [
     "BankInventory",
     "OakInventory", 
     "OakBank",
     "InventoryComponent",
     "BankComponent",
-    "OakInventoryItemPickup",
     "OakStorageComponent",
     "OakInventoryBalanceStateComponent",
     "OakInventoryCustomizationPartInfo",
@@ -727,15 +727,21 @@ def sort_bank_items(method: str = "Boividevngu") -> None:
         
         if not bank_objects:
             debug_log("No bank inventory objects found with any class name", "WARNING")
-            logging.warning(f"[{MOD_NAME}] ⚠️ No bank inventory found. Please:")
+            logging.warning(f"[{MOD_NAME}] ⚠️ No bank inventory found!")
+            logging.warning(f"[{MOD_NAME}] ")
+            logging.warning(f"[{MOD_NAME}] This mod is still in RESEARCH phase.")
+            logging.warning(f"[{MOD_NAME}] Sorting is NOT yet implemented.")
+            logging.warning(f"[{MOD_NAME}] ")
+            logging.warning(f"[{MOD_NAME}] To help implement sorting:")
             logging.warning(f"[{MOD_NAME}]   1. Make sure you're in-game")
             logging.warning(f"[{MOD_NAME}]   2. Open the bank")
             logging.warning(f"[{MOD_NAME}]   3. Press NumPad8 to research bank structure")
-            logging.warning(f"[{MOD_NAME}]   4. Then try sorting again")
+            logging.warning(f"[{MOD_NAME}]   4. Check the generated files: bank_structure_dump.txt")
+            logging.warning(f"[{MOD_NAME}]   5. Share the files to help identify the correct bank API")
             return
         
         # Log the sorting operation
-        debug_log(f"Starting sort operation with {len(bank_objects)} bank objects", "INFO")
+        debug_log(f"Found {len(bank_objects)} {found_class_name} objects for sorting", "INFO")
         
         # TODO: Implement actual sorting logic based on Bank API research
         # Steps needed:
@@ -746,12 +752,18 @@ def sort_bank_items(method: str = "Boividevngu") -> None:
         # 5. Test each sort method in-game
         # Reference: See bank_structure_dump.txt and bank_structure_dump.json for API details
         
-        # Placeholder for actual sorting logic - this would need game-specific implementation
-        # For now, we'll just log that the sort was attempted
-        logging.info(f"[{MOD_NAME}] ✅ Bank sort '{method}' triggered!")
-        logging.info(f"[{MOD_NAME}] ℹ️ Note: Actual sorting not yet implemented")
-        logging.info(f"[{MOD_NAME}] ℹ️ Press NumPad8 to research bank structure for implementation")
-        debug_log(f"Bank sort '{method}' completed (placeholder)", "INFO")
+        # WARNING: Sorting is NOT implemented yet - this is just research/placeholder
+        logging.warning(f"[{MOD_NAME}] ⚠️ IMPORTANT: Bank sorting is NOT yet implemented!")
+        logging.warning(f"[{MOD_NAME}] This mod is still in RESEARCH phase.")
+        logging.warning(f"[{MOD_NAME}] ")
+        logging.warning(f"[{MOD_NAME}] Found {len(bank_objects)} '{found_class_name}' objects")
+        logging.warning(f"[{MOD_NAME}] but we need to verify if this is the correct class.")
+        logging.warning(f"[{MOD_NAME}] ")
+        logging.warning(f"[{MOD_NAME}] Next steps:")
+        logging.warning(f"[{MOD_NAME}]   1. Press NumPad8 to research bank structure")
+        logging.warning(f"[{MOD_NAME}]   2. Check bank_structure_dump.txt and .json files")
+        logging.warning(f"[{MOD_NAME}]   3. Find the correct API to access and sort bank items")
+        debug_log(f"Bank sort '{method}' attempted but not implemented (placeholder)", "INFO")
         
     except Exception as e:
         import traceback
