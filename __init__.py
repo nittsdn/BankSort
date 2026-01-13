@@ -690,6 +690,31 @@ SORT_METHODS = {
 
 CURRENT_SORT_METHOD = "Boividevngu"  # Default sort method
 
+def get_first_valid_attr(obj: Any, attr_names: list, default_value: Any = None, convert_type: type = None) -> Any:
+    """
+    Get the first valid attribute from a list of possible attribute names.
+    
+    Args:
+        obj: The object to get attributes from
+        attr_names: List of attribute names to try
+        default_value: Default value if no attribute is found
+        convert_type: Optional type to convert the value to
+        
+    Returns:
+        The first valid attribute value or default_value
+    """
+    for attr_name in attr_names:
+        if hasattr(obj, attr_name):
+            value = getattr(obj, attr_name, None)
+            if value is not None:
+                if convert_type:
+                    try:
+                        return convert_type(value) if not isinstance(value, convert_type) else value
+                    except (ValueError, TypeError):
+                        continue
+                return value
+    return default_value
+
 def get_item_info(item_obj: Any) -> dict:
     """
     Extract item information from OakInventoryBalanceStateComponent object.
@@ -711,45 +736,24 @@ def get_item_info(item_obj: Any) -> dict:
     }
     
     try:
-        # Try to get item name from various possible attributes
-        for name_attr in ["ItemName", "DisplayName", "InventoryName", "Name"]:
-            if hasattr(item_obj, name_attr):
-                name_val = getattr(item_obj, name_attr, None)
-                if name_val:
-                    info["name"] = str(name_val)
-                    break
+        # Extract item information using helper function to reduce code duplication
+        name_val = get_first_valid_attr(item_obj, ["ItemName", "DisplayName", "InventoryName", "Name"], None, str)
+        if name_val:
+            info["name"] = name_val
         
-        # Try to get rarity
-        for rarity_attr in ["Rarity", "ItemRarity", "RarityLevel"]:
-            if hasattr(item_obj, rarity_attr):
-                rarity_val = getattr(item_obj, rarity_attr, 0)
-                if rarity_val is not None:
-                    info["rarity"] = int(rarity_val) if isinstance(rarity_val, (int, float)) else 0
-                    break
+        rarity_val = get_first_valid_attr(item_obj, ["Rarity", "ItemRarity", "RarityLevel"], 0, int)
+        info["rarity"] = rarity_val
         
-        # Try to get item type
-        for type_attr in ["ItemType", "InventoryType", "Type", "CategoryDefinition"]:
-            if hasattr(item_obj, type_attr):
-                type_val = getattr(item_obj, type_attr, None)
-                if type_val:
-                    info["type"] = str(type_val)
-                    break
+        type_val = get_first_valid_attr(item_obj, ["ItemType", "InventoryType", "Type", "CategoryDefinition"], None, str)
+        if type_val:
+            info["type"] = type_val
         
-        # Try to get level
-        for level_attr in ["Level", "ItemLevel", "RequiredLevel"]:
-            if hasattr(item_obj, level_attr):
-                level_val = getattr(item_obj, level_attr, 0)
-                if level_val is not None:
-                    info["level"] = int(level_val) if isinstance(level_val, (int, float)) else 0
-                    break
+        level_val = get_first_valid_attr(item_obj, ["Level", "ItemLevel", "RequiredLevel"], 0, int)
+        info["level"] = level_val
         
-        # Try to get manufacturer
-        for mfr_attr in ["Manufacturer", "ManufacturerDefinition", "Brand"]:
-            if hasattr(item_obj, mfr_attr):
-                mfr_val = getattr(item_obj, mfr_attr, None)
-                if mfr_val:
-                    info["manufacturer"] = str(mfr_val)
-                    break
+        mfr_val = get_first_valid_attr(item_obj, ["Manufacturer", "ManufacturerDefinition", "Brand"], None, str)
+        if mfr_val:
+            info["manufacturer"] = mfr_val
         
         # Get the balance component itself
         if hasattr(item_obj, "BalanceState"):
@@ -776,8 +780,16 @@ def sort_items_by_method(items_info: list, method: str) -> list:
     debug_log(f"Sorting {len(items_info)} items using method: {method}", "DEBUG")
     
     try:
-        if method == "Boividevngu" or method == "By Rarity":
-            # Sort by rarity (descending - legendary first)
+        # "Boividevngu" is Vietnamese for "legendary/rare item" sorting
+        # It prioritizes high-rarity items first, similar to "By Rarity"
+        # but could be extended with additional criteria in the future
+        if method == "Boividevngu":
+            # Primary: Sort by rarity (descending - legendary first)
+            # Secondary: Sort by level (descending - highest first)
+            sorted_items = sorted(items_info, key=lambda x: (x["rarity"], x["level"]), reverse=True)
+            debug_log(f"Sorted by Boividevngu: rarities/levels = {[(x['rarity'], x['level']) for x in sorted_items[:5]]}", "DEBUG")
+        elif method == "By Rarity":
+            # Sort by rarity only (descending - legendary first)
             sorted_items = sorted(items_info, key=lambda x: x["rarity"], reverse=True)
             debug_log(f"Sorted by rarity: rarities = {[x['rarity'] for x in sorted_items[:5]]}", "DEBUG")
         elif method == "By Type":
@@ -793,9 +805,9 @@ def sort_items_by_method(items_info: list, method: str) -> list:
             sorted_items = sorted(items_info, key=lambda x: x["level"], reverse=True)
             debug_log(f"Sorted by level: levels = {[x['level'] for x in sorted_items[:5]]}", "DEBUG")
         else:
-            # Default to rarity
-            sorted_items = sorted(items_info, key=lambda x: x["rarity"], reverse=True)
-            debug_log(f"Using default sort (rarity)", "DEBUG")
+            # Default to Boividevngu method
+            sorted_items = sorted(items_info, key=lambda x: (x["rarity"], x["level"]), reverse=True)
+            debug_log(f"Using default sort (Boividevngu)", "DEBUG")
         
         return sorted_items
     except Exception as e:
