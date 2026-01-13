@@ -48,14 +48,17 @@ def debug_log(message: str, level: str = "INFO") -> None:
     timestamp = datetime.now().strftime('%H:%M:%S.%f')[:-3]
     formatted_msg = f"[{timestamp}] [{MOD_NAME}] [{level}] {message}"
     
-    # Always print errors and warnings
+    # Always print errors and warnings, and all messages when debug is enabled
     if level in ["ERROR", "WARNING"] or DEBUG_ENABLED:
         print(formatted_msg)
     
     # Log to file if debug enabled
     if DEBUG_ENABLED:
         try:
-            log_file = os.path.join(get_mod_directory(), "debug.log")
+            mod_dir = get_mod_directory()
+            # Ensure directory exists
+            os.makedirs(mod_dir, exist_ok=True)
+            log_file = os.path.join(mod_dir, "debug.log")
             with open(log_file, 'a', encoding='utf-8') as f:
                 f.write(formatted_msg + '\n')
         except Exception as e:
@@ -441,7 +444,7 @@ def on_debug_toggle(option: BoolOption, new_value: bool) -> None:
 
 debug_option = BoolOption(
     "🐛 Enable Debug Mode",
-    default_value=False,
+    value=False,
     description="Enable detailed debug logging (similar to magnetloot mod). "
                 "Logs will be printed to console and saved to debug.log file.",
     on_change=on_debug_toggle
