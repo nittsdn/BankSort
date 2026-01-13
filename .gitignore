@@ -10,6 +10,10 @@ debug.log
 # Output files (optional - uncomment if you don't want to track them)
 # bank_structure_dump.txt
 # bank_structure_dump.json
+# mod_data_summary.txt
+
+# Test files
+test_scanning.py
 
 # IDE
 .vscode/
