@@ -752,7 +752,7 @@ def get_item_info(item_obj: Any) -> dict:
         rarity_val = get_first_valid_attr(item_obj, ["Rarity", "ItemRarity", "RarityLevel", "RarityData"], DEFAULT_ITEM_RARITY, int)
         info["rarity"] = rarity_val
         
-        type_val = get_first_valid_attr(item_obj, ["ItemType", "InventoryType", "Type", "CategoryDefinition", "InventoryData"], None, str)
+        type_val = get_first_valid_attr(item_obj, ["ItemType", "InventoryType", "Type", "CategoryDefinition"], None, str)
         if type_val:
             info["type"] = type_val
         
@@ -774,11 +774,9 @@ def get_item_info(item_obj: Any) -> dict:
                 inv_data = getattr(item_obj, "InventoryData", None)
                 if inv_data:
                     debug_log(f"Found InventoryData: {safe_type(inv_data)}", "DEBUG")
-                    # Try to extract from nested data
-                    if hasattr(inv_data, "InventoryBrandName"):
-                        name_from_data = safe_str(getattr(inv_data, "InventoryBrandName", ""))
-                        if name_from_data and info["name"] == DEFAULT_ITEM_NAME:
-                            info["name"] = name_from_data
+                    # Note: InventoryBrandName appears to be manufacturer/brand, not item name
+                    # Only use it as a last resort if we have no name at all
+                    # Future: look for better attributes like ItemSerialNumber or ItemDisplayName
             
             # Try BalanceData
             if hasattr(item_obj, "BalanceData"):
@@ -905,7 +903,7 @@ def sort_bank_items(method: str = "Boividevngu") -> None:
                     debug_log(f"Object type: {safe_type(item_obj)}", "INFO")
                     debug_log(f"Object str: {safe_str(item_obj)[:200]}", "INFO")
                     attrs = dir(item_obj)
-                    relevant_attrs = [a for a in attrs if not a.startswith('_') and not a.startswith('__')]
+                    relevant_attrs = [a for a in attrs if not a.startswith('_')]
                     debug_log(f"Non-private attributes count: {len(relevant_attrs)}", "INFO")
                     debug_log(f"First 30 attributes: {relevant_attrs[:30]}", "INFO")
                     
