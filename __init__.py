@@ -681,7 +681,7 @@ def save_dump_to_file(result: dict) -> None:
 # ==================== BANK SORT FUNCTIONS ====================
 
 SORT_METHODS = {
-    "Boividevngu": "boividevngu",
+    "Boividevngu": "boividevngu",  # Vietnamese: "Đồ vĩ đại và nguy nga" - means legendary/epic items first
     "By Rarity": "rarity",
     "By Type": "type",
     "By Name": "name",
@@ -736,28 +736,54 @@ def get_item_info(item_obj: Any) -> dict:
     }
     
     try:
+        # Debug: Log available attributes on first item to help identify correct property names
+        if DEBUG_ENABLED:
+            attrs = dir(item_obj)
+            debug_log(f"Item object type: {safe_type(item_obj)}", "DEBUG")
+            debug_log(f"Available attributes: {[a for a in attrs if not a.startswith('_')][:20]}", "DEBUG")
+        
         # Extract item information using helper function to reduce code duplication
-        name_val = get_first_valid_attr(item_obj, ["ItemName", "DisplayName", "InventoryName", "Name"], None, str)
+        # Try multiple possible attribute names for each property
+        name_val = get_first_valid_attr(item_obj, ["ItemName", "DisplayName", "InventoryName", "Name", "UIDisplayName"], None, str)
         if name_val:
             info["name"] = name_val
         
-        rarity_val = get_first_valid_attr(item_obj, ["Rarity", "ItemRarity", "RarityLevel"], 0, int)
+        rarity_val = get_first_valid_attr(item_obj, ["Rarity", "ItemRarity", "RarityLevel", "RarityData"], 0, int)
         info["rarity"] = rarity_val
         
-        type_val = get_first_valid_attr(item_obj, ["ItemType", "InventoryType", "Type", "CategoryDefinition"], None, str)
+        type_val = get_first_valid_attr(item_obj, ["ItemType", "InventoryType", "Type", "CategoryDefinition", "InventoryData"], None, str)
         if type_val:
             info["type"] = type_val
         
-        level_val = get_first_valid_attr(item_obj, ["Level", "ItemLevel", "RequiredLevel"], 0, int)
+        level_val = get_first_valid_attr(item_obj, ["Level", "ItemLevel", "RequiredLevel", "GameStage"], 0, int)
         info["level"] = level_val
         
-        mfr_val = get_first_valid_attr(item_obj, ["Manufacturer", "ManufacturerDefinition", "Brand"], None, str)
+        mfr_val = get_first_valid_attr(item_obj, ["Manufacturer", "ManufacturerDefinition", "Brand", "ManufacturerData"], None, str)
         if mfr_val:
             info["manufacturer"] = mfr_val
         
-        # Get the balance component itself
+        # Try to get balance data for more information
         if hasattr(item_obj, "BalanceState"):
             info["balance"] = getattr(item_obj, "BalanceState", None)
+        
+        # If we still have default values, try to get data from nested objects
+        if info["name"] == "Unknown" or info["rarity"] == 0:
+            # Try to access InventoryData or BalanceData for more info
+            if hasattr(item_obj, "InventoryData"):
+                inv_data = getattr(item_obj, "InventoryData", None)
+                if inv_data:
+                    debug_log(f"Found InventoryData: {safe_type(inv_data)}", "DEBUG")
+                    # Try to extract from nested data
+                    if hasattr(inv_data, "InventoryBrandName"):
+                        name_from_data = safe_str(getattr(inv_data, "InventoryBrandName", ""))
+                        if name_from_data and info["name"] == "Unknown":
+                            info["name"] = name_from_data
+            
+            # Try BalanceData
+            if hasattr(item_obj, "BalanceData"):
+                balance_data = getattr(item_obj, "BalanceData", None)
+                if balance_data:
+                    debug_log(f"Found BalanceData: {safe_type(balance_data)}", "DEBUG")
         
         debug_log(f"Extracted item info: {info['name']} (Rarity: {info['rarity']}, Type: {info['type']}, Level: {info['level']})", "DEBUG")
         
@@ -872,6 +898,26 @@ def sort_bank_items(method: str = "Boividevngu") -> None:
         items_info = []
         for idx, item_obj in enumerate(bank_objects):
             try:
+                # Diagnostic: Dump first item's attributes in detail when debug enabled
+                if idx == 0 and DEBUG_ENABLED:
+                    debug_log("=== DIAGNOSTIC: First item detailed inspection ===", "INFO")
+                    debug_log(f"Object type: {safe_type(item_obj)}", "INFO")
+                    debug_log(f"Object str: {safe_str(item_obj)[:200]}", "INFO")
+                    attrs = dir(item_obj)
+                    relevant_attrs = [a for a in attrs if not a.startswith('_') and not a.startswith('__')]
+                    debug_log(f"Non-private attributes count: {len(relevant_attrs)}", "INFO")
+                    debug_log(f"First 30 attributes: {relevant_attrs[:30]}", "INFO")
+                    
+                    # Try to get values for some common attributes
+                    for attr_name in ["Name", "DisplayName", "Rarity", "Level", "ItemName", "InventoryData", "BalanceData", "BalanceState"]:
+                        if hasattr(item_obj, attr_name):
+                            try:
+                                val = getattr(item_obj, attr_name)
+                                debug_log(f"  {attr_name} = {safe_type(val)} : {safe_str(val)[:100]}", "INFO")
+                            except Exception as e:
+                                debug_log(f"  {attr_name} - Error accessing: {e}", "INFO")
+                    debug_log("=== END DIAGNOSTIC ===", "INFO")
+                
                 info = get_item_info(item_obj)
                 items_info.append(info)
                 if idx < 3:  # Log first 3 items for debugging
@@ -887,24 +933,29 @@ def sort_bank_items(method: str = "Boividevngu") -> None:
             return
         
         logging.info(f"[{MOD_NAME}] ✅ Extracted information from {len(items_info)} items")
+        logging.info(f"[{MOD_NAME}] ✅ Đã trích xuất thông tin từ {len(items_info)} items")
         
         # Sort the items based on the selected method
         sorted_items = sort_items_by_method(items_info, method)
         
-        # Log the sorting result
+        # Log the sorting result (Vietnamese + English)
         logging.info(f"[{MOD_NAME}] ✅ Items sorted using '{method}' method!")
-        logging.info(f"[{MOD_NAME}] 📋 Sort order summary (first 5):")
+        logging.info(f"[{MOD_NAME}] ✅ Đã sắp xếp items theo phương pháp '{method}'!")
+        logging.info(f"[{MOD_NAME}] 📋 Sort order summary (first 5) / Kết quả sắp xếp (5 đầu tiên):")
         for idx, item in enumerate(sorted_items[:5]):
             logging.info(f"[{MOD_NAME}]   {idx+1}. {item['name']} (Rarity: {item['rarity']}, Type: {item['type']}, Level: {item['level']})")
         
         # NOTE: Actual reordering in the game requires finding the correct API methods
         # The current implementation demonstrates sorting logic but doesn't modify the game state
         logging.warning(f"[{MOD_NAME}] ")
-        logging.warning(f"[{MOD_NAME}] ⚠️ NOTE: Sorting logic is complete, but physical reordering")
+        logging.warning(f"[{MOD_NAME}] ⚠️ NOTE / LƯU Ý: Sorting logic is complete, but physical reordering")
         logging.warning(f"[{MOD_NAME}] in the game requires additional API discovery.")
+        logging.warning(f"[{MOD_NAME}] Logic sắp xếp đã hoàn thành, nhưng việc sắp xếp thực tế trong game")
+        logging.warning(f"[{MOD_NAME}] cần thêm API discovery.")
         logging.warning(f"[{MOD_NAME}] ")
-        logging.warning(f"[{MOD_NAME}] Next step: Press NumPad8 to research bank structure")
+        logging.warning(f"[{MOD_NAME}] Next step / Bước tiếp theo: Press NumPad8 to research bank structure")
         logging.warning(f"[{MOD_NAME}] and find methods to actually reorder items in the bank.")
+        logging.warning(f"[{MOD_NAME}] Nhấn NumPad8 để research cấu trúc bank và tìm phương thức sắp xếp thực tế.")
         
         debug_log(f"Bank sort '{method}' completed - logical sort successful, physical reorder needs API", "INFO")
         
@@ -953,15 +1004,16 @@ def on_debug_toggle(option: BoolOption, new_value: bool) -> None:
     DEBUG_ENABLED = new_value
     
     if DEBUG_ENABLED:
-        logging.info(f"[{MOD_NAME}] 🐛 Debug mode ENABLED")
+        logging.info(f"[{MOD_NAME}] 🐛 Debug mode ENABLED / Chế độ debug ĐÃ BẬT")
         debug_log("Debug mode enabled by user", "INFO")
         debug_log("=" * 60, "INFO")
-        debug_log("Debug logging is now active!", "INFO")
+        debug_log("Debug logging is now active! / Debug logging đã kích hoạt!", "INFO")
         debug_log("All debug messages will be printed to console and saved to debug.log", "INFO")
+        debug_log("Tất cả tin nhắn debug sẽ được in ra console và lưu vào debug.log", "INFO")
         debug_log("=" * 60, "INFO")
     else:
         debug_log("Debug mode disabled by user", "INFO")
-        logging.info(f"[{MOD_NAME}] 🐛 Debug mode DISABLED")
+        logging.info(f"[{MOD_NAME}] 🐛 Debug mode DISABLED / Chế độ debug ĐÃ TẮT")
 
 def on_sort_method_change(option: SpinnerOption, new_value: str) -> None:
     """Handle sort method change"""
@@ -969,6 +1021,7 @@ def on_sort_method_change(option: SpinnerOption, new_value: str) -> None:
     CURRENT_SORT_METHOD = new_value
     debug_log(f"Sort method changed to: {new_value}", "INFO")
     logging.info(f"[{MOD_NAME}] 🔄 Sort method set to: {new_value}")
+    logging.info(f"[{MOD_NAME}] 🔄 Phương pháp sắp xếp đã chọn: {new_value}")
 
 def on_sort_button(_: ButtonOption) -> None:
     """Button callback for sorting bank"""
@@ -1023,10 +1076,14 @@ build_mod(
 
 logging.info("="*80)
 logging.info(f"[{MOD_NAME}] v{__version__} Loaded!")
+logging.info(f"[{MOD_NAME}] v{__version__} Đã tải!")
 logging.info(f"[{MOD_NAME}] ℹ️ Press tilde (~) key twice to open console and see messages")
-logging.info(f"[{MOD_NAME}] Keybinds:")
+logging.info(f"[{MOD_NAME}] ℹ️ Nhấn phím tilde (~) 2 lần để mở console và xem tin nhắn")
+logging.info(f"[{MOD_NAME}] Keybinds / Phím tắt:")
 logging.info(f"[{MOD_NAME}]   NumPad7 - Sort Bank (current method: {CURRENT_SORT_METHOD})")
+logging.info(f"[{MOD_NAME}]   NumPad7 - Sắp xếp Bank (phương pháp hiện tại: {CURRENT_SORT_METHOD})")
 logging.info(f"[{MOD_NAME}]   NumPad8 - Dump Bank Structure")
+logging.info(f"[{MOD_NAME}]   NumPad8 - Dump cấu trúc Bank")
 logging.info(f"[{MOD_NAME}] 🐛 Debug mode: {'ENABLED' if DEBUG_ENABLED else 'DISABLED'} (toggle in options)")
 logging.info(f"[{MOD_NAME}] 📁 Available sort methods: {', '.join(SORT_METHODS.keys())}")
 logging.info(f"[{MOD_NAME}] Output files: {OUTPUT_FILE}, {JSON_FILE}, {SUMMARY_FILE}, debug.log")
