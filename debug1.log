@@ -1,52 +1,438 @@
-[14:43:26.258] [BankResearch] [INFO] Debug mode enabled by user
-[14:43:26.259] [BankResearch] [INFO] ============================================================
-[14:43:26.259] [BankResearch] [INFO] Debug logging is now active!
-[14:43:26.259] [BankResearch] [INFO] All debug messages will be printed to console and saved to debug.log
-[14:43:26.259] [BankResearch] [INFO] ============================================================
-[14:43:26.259] [BankResearch] [INFO] Sort method changed to: Boividevngu
-[14:43:26.259] [BankResearch] [INFO] BankResearch v0.7.0 initialized
-[19:02:12.655] [BankResearch] [INFO] Debug mode enabled by user
-[19:02:12.656] [BankResearch] [INFO] ============================================================
-[19:02:12.666] [BankResearch] [INFO] Debug logging is now active!
-[19:02:12.667] [BankResearch] [INFO] All debug messages will be printed to console and saved to debug.log
-[19:02:12.667] [BankResearch] [INFO] ============================================================
-[19:02:12.667] [BankResearch] [INFO] Sort method changed to: Boividevngu
-[19:02:12.668] [BankResearch] [INFO] BankResearch v0.7.0 initialized
-[19:03:48.753] [BankResearch] [INFO] Sort button pressed, using method: Boividevngu
-[19:03:48.754] [BankResearch] [INFO] sort_bank_items called with method: Boividevngu
-[19:03:48.754] [BankResearch] [DEBUG] PlayerController found, attempting to sort bank using 'Boividevngu' method
-[19:03:48.754] [BankResearch] [DEBUG] Trying to find class: BankInventory
-[19:03:48.754] [BankResearch] [DEBUG] Class BankInventory not found: Couldn't find class 'BankInventory'
-[19:03:48.754] [BankResearch] [DEBUG] Trying to find class: OakInventory
-[19:03:48.755] [BankResearch] [DEBUG] Class OakInventory not found: Couldn't find class 'OakInventory'
-[19:03:48.755] [BankResearch] [DEBUG] Trying to find class: OakBank
-[19:03:48.755] [BankResearch] [DEBUG] Class OakBank not found: Couldn't find class 'OakBank'
-[19:03:48.755] [BankResearch] [DEBUG] Trying to find class: InventoryComponent
-[19:03:48.755] [BankResearch] [DEBUG] Class InventoryComponent not found: Couldn't find class 'InventoryComponent'
-[19:03:48.756] [BankResearch] [DEBUG] Trying to find class: BankComponent
-[19:03:48.756] [BankResearch] [DEBUG] Class BankComponent not found: Couldn't find class 'BankComponent'
-[19:03:48.756] [BankResearch] [DEBUG] Trying to find class: OakStorageComponent
-[19:03:48.756] [BankResearch] [DEBUG] Class OakStorageComponent not found: Couldn't find class 'OakStorageComponent'
-[19:03:48.756] [BankResearch] [DEBUG] Trying to find class: OakInventoryBalanceStateComponent
-[19:03:48.776] [BankResearch] [INFO] Found 48 OakInventoryBalanceStateComponent objects
-[19:03:48.776] [BankResearch] [INFO] Found 48 OakInventoryBalanceStateComponent objects for sorting
-[19:03:48.776] [BankResearch] [INFO] Bank sort 'Boividevngu' attempted but not implemented (placeholder)
-[19:04:22.231] [BankResearch] [INFO] Sort button pressed, using method: Boividevngu
-[19:04:22.231] [BankResearch] [INFO] sort_bank_items called with method: Boividevngu
-[19:04:22.232] [BankResearch] [DEBUG] PlayerController found, attempting to sort bank using 'Boividevngu' method
-[19:04:22.232] [BankResearch] [DEBUG] Trying to find class: BankInventory
-[19:04:22.232] [BankResearch] [DEBUG] Class BankInventory not found: Couldn't find class 'BankInventory'
-[19:04:22.232] [BankResearch] [DEBUG] Trying to find class: OakInventory
-[19:04:22.232] [BankResearch] [DEBUG] Class OakInventory not found: Couldn't find class 'OakInventory'
-[19:04:22.232] [BankResearch] [DEBUG] Trying to find class: OakBank
-[19:04:22.232] [BankResearch] [DEBUG] Class OakBank not found: Couldn't find class 'OakBank'
-[19:04:22.233] [BankResearch] [DEBUG] Trying to find class: InventoryComponent
-[19:04:22.233] [BankResearch] [DEBUG] Class InventoryComponent not found: Couldn't find class 'InventoryComponent'
-[19:04:22.233] [BankResearch] [DEBUG] Trying to find class: BankComponent
-[19:04:22.233] [BankResearch] [DEBUG] Class BankComponent not found: Couldn't find class 'BankComponent'
-[19:04:22.233] [BankResearch] [DEBUG] Trying to find class: OakStorageComponent
-[19:04:22.233] [BankResearch] [DEBUG] Class OakStorageComponent not found: Couldn't find class 'OakStorageComponent'
-[19:04:22.233] [BankResearch] [DEBUG] Trying to find class: OakInventoryBalanceStateComponent
-[19:04:22.247] [BankResearch] [INFO] Found 48 OakInventoryBalanceStateComponent objects
-[19:04:22.248] [BankResearch] [INFO] Found 48 OakInventoryBalanceStateComponent objects for sorting
-[19:04:22.248] [BankResearch] [INFO] Bank sort 'Boividevngu' attempted but not implemented (placeholder)
+[20:35:14.833] [BankResearch] [INFO] Debug mode enabled by user
+[20:35:14.834] [BankResearch] [INFO] ============================================================
+[20:35:14.834] [BankResearch] [INFO] Debug logging is now active!
+[20:35:14.834] [BankResearch] [INFO] All debug messages will be printed to console and saved to debug.log
+[20:35:14.834] [BankResearch] [INFO] ============================================================
+[20:35:14.834] [BankResearch] [INFO] Sort method changed to: Boividevngu
+[20:35:14.834] [BankResearch] [INFO] BankResearch v0.7.0 initialized
+[14:43:08.899] [BankResearch] [INFO] Debug mode enabled by user
+[14:43:08.900] [BankResearch] [INFO] ============================================================
+[14:43:08.900] [BankResearch] [INFO] Debug logging is now active!
+[14:43:08.901] [BankResearch] [INFO] All debug messages will be printed to console and saved to debug.log
+[14:43:08.901] [BankResearch] [INFO] ============================================================
+[14:43:08.901] [BankResearch] [INFO] Sort method changed to: Boividevngu
+[14:43:08.901] [BankResearch] [INFO] BankResearch v0.7.0 initialized
+[16:34:20.488] [BankResearch] [INFO] Debug mode enabled by user
+[16:34:20.488] [BankResearch] [INFO] ============================================================
+[16:34:20.488] [BankResearch] [INFO] Debug logging is now active!
+[16:34:20.488] [BankResearch] [INFO] All debug messages will be printed to console and saved to debug.log
+[16:34:20.489] [BankResearch] [INFO] ============================================================
+[16:34:20.489] [BankResearch] [INFO] Sort method changed to: Boividevngu
+[16:34:20.489] [BankResearch] [INFO] BankResearch v0.7.0 initialized
+[16:38:58.917] [BankResearch] [INFO] Debug mode enabled by user
+[16:38:58.917] [BankResearch] [INFO] ============================================================
+[16:38:58.917] [BankResearch] [INFO] Debug logging is now active!
+[16:38:58.917] [BankResearch] [INFO] All debug messages will be printed to console and saved to debug.log
+[16:38:58.917] [BankResearch] [INFO] ============================================================
+[16:38:58.917] [BankResearch] [INFO] Sort method changed to: Boividevngu
+[16:38:58.918] [BankResearch] [INFO] BankResearch v0.7.0 initialized
+[19:41:39.488] [BankResearch] [INFO] Debug mode enabled by user
+[19:41:39.488] [BankResearch] [INFO] ============================================================
+[19:41:39.488] [BankResearch] [INFO] Debug logging is now active!
+[19:41:39.489] [BankResearch] [INFO] All debug messages will be printed to console and saved to debug.log
+[19:41:39.489] [BankResearch] [INFO] ============================================================
+[19:41:39.489] [BankResearch] [INFO] Sort method changed to: Boividevngu
+[19:41:39.489] [BankResearch] [INFO] BankResearch v0.7.0 initialized
+[19:50:11.202] [BankResearch] [INFO] Debug mode enabled by user
+[19:50:11.202] [BankResearch] [INFO] ============================================================
+[19:50:11.202] [BankResearch] [INFO] Debug logging is now active!
+[19:50:11.202] [BankResearch] [INFO] All debug messages will be printed to console and saved to debug.log
+[19:50:11.202] [BankResearch] [INFO] ============================================================
+[19:50:11.202] [BankResearch] [INFO] Sort method changed to: Boividevngu
+[19:50:11.203] [BankResearch] [INFO] BankResearch v0.7.1 initialized
+[19:53:49.427] [BankResearch] [INFO] Debug mode enabled by user
+[19:53:49.427] [BankResearch] [INFO] ============================================================
+[19:53:49.428] [BankResearch] [INFO] Debug logging is now active!
+[19:53:49.428] [BankResearch] [INFO] All debug messages will be printed to console and saved to debug.log
+[19:53:49.428] [BankResearch] [INFO] ============================================================
+[19:53:49.428] [BankResearch] [INFO] Sort method changed to: Boividevngu
+[19:53:49.429] [BankResearch] [INFO] BankResearch v0.7.1 initialized
+[09:28:12.012] [BankResearch] [INFO] Debug mode enabled by user
+[09:28:12.012] [BankResearch] [INFO] ============================================================
+[09:28:12.013] [BankResearch] [INFO] Debug logging is now active!
+[09:28:12.013] [BankResearch] [INFO] All debug messages will be printed to console and saved to debug.log
+[09:28:12.013] [BankResearch] [INFO] ============================================================
+[09:28:12.013] [BankResearch] [INFO] Sort method changed to: Boividevngu
+[09:28:12.013] [BankResearch] [INFO] BankResearch v0.7.1 initialized
+[09:34:44.616] [BankResearch] [INFO] Debug mode enabled by user
+[09:34:44.616] [BankResearch] [INFO] ============================================================
+[09:34:44.616] [BankResearch] [INFO] Debug logging is now active!
+[09:34:44.617] [BankResearch] [INFO] All debug messages will be printed to console and saved to debug.log
+[09:34:44.617] [BankResearch] [INFO] ============================================================
+[09:34:44.617] [BankResearch] [INFO] Sort method changed to: Boividevngu
+[09:34:44.617] [BankResearch] [INFO] BankResearch v0.7.1 initialized
+[09:36:30.174] [BankResearch] [INFO] Research button pressed
+[09:36:30.973] [BankResearch] [INFO] Sort button pressed, using method: Boividevngu
+[09:36:30.973] [BankResearch] [INFO] sort_bank_items called with method: Boividevngu
+[09:36:30.973] [BankResearch] [DEBUG] PlayerController found, attempting to sort bank using 'Boividevngu' method
+[09:36:30.974] [BankResearch] [DEBUG] Trying to find class: BankInventory
+[09:36:30.980] [BankResearch] [DEBUG] Class BankInventory not found: Couldn't find class 'BankInventory'
+[09:36:30.980] [BankResearch] [DEBUG] Trying to find class: OakInventory
+[09:36:30.980] [BankResearch] [DEBUG] Class OakInventory not found: Couldn't find class 'OakInventory'
+[09:36:30.980] [BankResearch] [DEBUG] Trying to find class: OakBank
+[09:36:30.981] [BankResearch] [DEBUG] Class OakBank not found: Couldn't find class 'OakBank'
+[09:36:30.981] [BankResearch] [DEBUG] Trying to find class: InventoryComponent
+[09:36:30.981] [BankResearch] [DEBUG] Class InventoryComponent not found: Couldn't find class 'InventoryComponent'
+[09:36:30.981] [BankResearch] [DEBUG] Trying to find class: BankComponent
+[09:36:30.981] [BankResearch] [DEBUG] Class BankComponent not found: Couldn't find class 'BankComponent'
+[09:36:30.981] [BankResearch] [DEBUG] Trying to find class: OakStorageComponent
+[09:36:30.981] [BankResearch] [DEBUG] Class OakStorageComponent not found: Couldn't find class 'OakStorageComponent'
+[09:36:30.981] [BankResearch] [DEBUG] Trying to find class: OakInventoryBalanceStateComponent
+[09:36:30.996] [BankResearch] [INFO] Found 47 OakInventoryBalanceStateComponent objects
+[09:36:30.996] [BankResearch] [INFO] Found 47 OakInventoryBalanceStateComponent objects for sorting
+[09:36:30.996] [BankResearch] [DEBUG] Extracted item info: Unknown (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:30.997] [BankResearch] [DEBUG] Item 0: Unknown (Rarity: 0)
+[09:36:30.997] [BankResearch] [DEBUG] Extracted item info: Reborn (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:30.997] [BankResearch] [DEBUG] Item 1: Reborn (Rarity: 0)
+[09:36:30.997] [BankResearch] [DEBUG] Extracted item info: Berzerker Rocket Boots (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:30.997] [BankResearch] [DEBUG] Item 2: Berzerker Rocket Boots (Rarity: 0)
+[09:36:30.998] [BankResearch] [DEBUG] Extracted item info: Ice Spiker Deathless (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:30.998] [BankResearch] [DEBUG] Extracted item info: Electric Slide Splatter Gun (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:30.998] [BankResearch] [DEBUG] Extracted item info: Elemental Projector Rocket Boots (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:30.999] [BankResearch] [DEBUG] Extracted item info: Radiodead Deathless (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:30.999] [BankResearch] [DEBUG] Extracted item info: Toxic Revenger Deathless (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:31.000] [BankResearch] [DEBUG] Extracted item info: Atom Balm Deathless (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:31.000] [BankResearch] [DEBUG] Extracted item info: Shock Stone Deathless (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:31.000] [BankResearch] [DEBUG] Extracted item info: Shock Stone Victory Rush (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:31.001] [BankResearch] [DEBUG] Extracted item info: Atom Balm Deathless (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:31.001] [BankResearch] [DEBUG] Extracted item info: Elemental Projector Rocket Boots (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:31.001] [BankResearch] [DEBUG] Extracted item info: Cryo Stone Victory Rush (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:31.002] [BankResearch] [DEBUG] Extracted item info: Atlas Company Man (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:31.002] [BankResearch] [DEBUG] Extracted item info: Jakobs Company Man (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:31.002] [BankResearch] [DEBUG] Extracted item info: Jakobs Company Man (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:31.003] [BankResearch] [DEBUG] Extracted item info: Maliwan Company Man (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:31.003] [BankResearch] [DEBUG] Extracted item info: Torgue Company Man (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:31.003] [BankResearch] [DEBUG] Extracted item info: Elemental Projector Deathless (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:31.004] [BankResearch] [DEBUG] Extracted item info: Radiodead Victory Rush (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:31.004] [BankResearch] [DEBUG] Extracted item info: Toxic Revenger Deathless (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:31.004] [BankResearch] [DEBUG] Extracted item info: Atom Balm Rocket Boots (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:31.005] [BankResearch] [DEBUG] Extracted item info: Cauterizing Static Charge (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:31.005] [BankResearch] [DEBUG] Extracted item info: Cryo Stone White Elephant (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:31.005] [BankResearch] [DEBUG] Extracted item info: Cutpurse Commander Planetoid (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:31.006] [BankResearch] [DEBUG] Extracted item info: Flesh Melter Rocket Boots (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:31.006] [BankResearch] [DEBUG] Extracted item info: Last Stand Commander Planetoid (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:31.006] [BankResearch] [DEBUG] Extracted item info: Snowdrift Commander Planetoid (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:31.007] [BankResearch] [DEBUG] Extracted item info: Knife Drain Static Charge (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:31.007] [BankResearch] [DEBUG] Extracted item info: Cauterizing Static Charge (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:31.007] [BankResearch] [DEBUG] Extracted item info: Elemental Projector Rocket Boots (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:31.008] [BankResearch] [DEBUG] Extracted item info: The Pearl of Ineffable Knowledge (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:31.008] [BankResearch] [DEBUG] Extracted item info: Last Stand Victory Rush (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:31.008] [BankResearch] [DEBUG] Extracted item info: Rear Ender Commander Planetoid (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:31.009] [BankResearch] [DEBUG] Extracted item info: Corrosive Stone Rocket Boots (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:31.009] [BankResearch] [DEBUG] Extracted item info: Unleash the Dragon (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:31.009] [BankResearch] [DEBUG] Extracted item info: Snowdrift Cosmic Crater (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:31.010] [BankResearch] [DEBUG] Extracted item info: Shlooter (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:31.010] [BankResearch] [DEBUG] Extracted item info: Cryo Stone Static Charge (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:31.010] [BankResearch] [DEBUG] Extracted item info: Fire Stone White Elephant (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:31.011] [BankResearch] [DEBUG] Extracted item info: Shock Stone Commander Planetoid (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:31.011] [BankResearch] [DEBUG] Extracted item info: Cryo Stone Commander Planetoid (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:31.011] [BankResearch] [DEBUG] Extracted item info: Chaotic Hood (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:31.012] [BankResearch] [DEBUG] Extracted item info: Spark Plug White Elephant (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:31.012] [BankResearch] [DEBUG] Extracted item info: Radiation Stone White Elephant (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:31.012] [BankResearch] [DEBUG] Extracted item info: Knife Drain Static Charge (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:31.012] [BankResearch] [DEBUG] Sorting 47 items using method: Boividevngu
+[09:36:31.012] [BankResearch] [DEBUG] Sorted by Boividevngu: rarities/levels = [(0, 0), (0, 0), (0, 0), (0, 0), (0, 0)]
+[09:36:31.013] [BankResearch] [INFO] Bank sort 'Boividevngu' completed - logical sort successful, physical reorder needs API
+[09:36:57.033] [BankResearch] [INFO] Sort button pressed, using method: Boividevngu
+[09:36:57.033] [BankResearch] [INFO] sort_bank_items called with method: Boividevngu
+[09:36:57.034] [BankResearch] [DEBUG] PlayerController found, attempting to sort bank using 'Boividevngu' method
+[09:36:57.034] [BankResearch] [DEBUG] Trying to find class: BankInventory
+[09:36:57.034] [BankResearch] [DEBUG] Class BankInventory not found: Couldn't find class 'BankInventory'
+[09:36:57.034] [BankResearch] [DEBUG] Trying to find class: OakInventory
+[09:36:57.034] [BankResearch] [DEBUG] Class OakInventory not found: Couldn't find class 'OakInventory'
+[09:36:57.034] [BankResearch] [DEBUG] Trying to find class: OakBank
+[09:36:57.035] [BankResearch] [DEBUG] Class OakBank not found: Couldn't find class 'OakBank'
+[09:36:57.035] [BankResearch] [DEBUG] Trying to find class: InventoryComponent
+[09:36:57.035] [BankResearch] [DEBUG] Class InventoryComponent not found: Couldn't find class 'InventoryComponent'
+[09:36:57.035] [BankResearch] [DEBUG] Trying to find class: BankComponent
+[09:36:57.035] [BankResearch] [DEBUG] Class BankComponent not found: Couldn't find class 'BankComponent'
+[09:36:57.036] [BankResearch] [DEBUG] Trying to find class: OakStorageComponent
+[09:36:57.036] [BankResearch] [DEBUG] Class OakStorageComponent not found: Couldn't find class 'OakStorageComponent'
+[09:36:57.036] [BankResearch] [DEBUG] Trying to find class: OakInventoryBalanceStateComponent
+[09:36:57.050] [BankResearch] [INFO] Found 77 OakInventoryBalanceStateComponent objects
+[09:36:57.050] [BankResearch] [INFO] Found 77 OakInventoryBalanceStateComponent objects for sorting
+[09:36:57.051] [BankResearch] [DEBUG] Extracted item info: Unknown (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.051] [BankResearch] [DEBUG] Item 0: Unknown (Rarity: 0)
+[09:36:57.051] [BankResearch] [DEBUG] Extracted item info: Reborn (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.051] [BankResearch] [DEBUG] Item 1: Reborn (Rarity: 0)
+[09:36:57.052] [BankResearch] [DEBUG] Extracted item info: Berzerker Rocket Boots (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.052] [BankResearch] [DEBUG] Item 2: Berzerker Rocket Boots (Rarity: 0)
+[09:36:57.052] [BankResearch] [DEBUG] Extracted item info: Ice Spiker Deathless (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.053] [BankResearch] [DEBUG] Extracted item info: Electric Slide Splatter Gun (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.053] [BankResearch] [DEBUG] Extracted item info: Elemental Projector Rocket Boots (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.053] [BankResearch] [DEBUG] Extracted item info: Radiodead Deathless (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.054] [BankResearch] [DEBUG] Extracted item info: Toxic Revenger Deathless (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.054] [BankResearch] [DEBUG] Extracted item info: Atom Balm Deathless (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.054] [BankResearch] [DEBUG] Extracted item info: Shock Stone Deathless (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.055] [BankResearch] [DEBUG] Extracted item info: Shock Stone Victory Rush (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.055] [BankResearch] [DEBUG] Extracted item info: Atom Balm Deathless (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.055] [BankResearch] [DEBUG] Extracted item info: Elemental Projector Rocket Boots (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.056] [BankResearch] [DEBUG] Extracted item info: Cryo Stone Victory Rush (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.056] [BankResearch] [DEBUG] Extracted item info: Atlas Company Man (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.057] [BankResearch] [DEBUG] Extracted item info: Jakobs Company Man (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.057] [BankResearch] [DEBUG] Extracted item info: Jakobs Company Man (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.057] [BankResearch] [DEBUG] Extracted item info: Maliwan Company Man (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.058] [BankResearch] [DEBUG] Extracted item info: Torgue Company Man (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.058] [BankResearch] [DEBUG] Extracted item info: Elemental Projector Deathless (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.058] [BankResearch] [DEBUG] Extracted item info: Radiodead Victory Rush (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.059] [BankResearch] [DEBUG] Extracted item info: Toxic Revenger Deathless (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.059] [BankResearch] [DEBUG] Extracted item info: Atom Balm Rocket Boots (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.059] [BankResearch] [DEBUG] Extracted item info: Cauterizing Static Charge (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.060] [BankResearch] [DEBUG] Extracted item info: Cryo Stone White Elephant (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.060] [BankResearch] [DEBUG] Extracted item info: Cutpurse Commander Planetoid (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.060] [BankResearch] [DEBUG] Extracted item info: Flesh Melter Rocket Boots (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.061] [BankResearch] [DEBUG] Extracted item info: Last Stand Commander Planetoid (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.061] [BankResearch] [DEBUG] Extracted item info: Snowdrift Commander Planetoid (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.061] [BankResearch] [DEBUG] Extracted item info: Knife Drain Static Charge (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.062] [BankResearch] [DEBUG] Extracted item info: Cauterizing Static Charge (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.062] [BankResearch] [DEBUG] Extracted item info: Elemental Projector Rocket Boots (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.063] [BankResearch] [DEBUG] Extracted item info: The Pearl of Ineffable Knowledge (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.063] [BankResearch] [DEBUG] Extracted item info: Last Stand Victory Rush (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.063] [BankResearch] [DEBUG] Extracted item info: Rear Ender Commander Planetoid (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.064] [BankResearch] [DEBUG] Extracted item info: Corrosive Stone Rocket Boots (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.064] [BankResearch] [DEBUG] Extracted item info: Unleash the Dragon (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.064] [BankResearch] [DEBUG] Extracted item info: Snowdrift Cosmic Crater (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.065] [BankResearch] [DEBUG] Extracted item info: Shlooter (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.065] [BankResearch] [DEBUG] Extracted item info: Cryo Stone Static Charge (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.065] [BankResearch] [DEBUG] Extracted item info: Fire Stone White Elephant (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.066] [BankResearch] [DEBUG] Extracted item info: Shock Stone Commander Planetoid (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.066] [BankResearch] [DEBUG] Extracted item info: Cryo Stone Commander Planetoid (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.066] [BankResearch] [DEBUG] Extracted item info: Chaotic Hood (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.067] [BankResearch] [DEBUG] Extracted item info: Spark Plug White Elephant (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.067] [BankResearch] [DEBUG] Extracted item info: Radiation Stone White Elephant (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.067] [BankResearch] [DEBUG] Extracted item info: Knife Drain Static Charge (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.068] [BankResearch] [DEBUG] Extracted item info: Berzerker Rocket Boots (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.068] [BankResearch] [DEBUG] Extracted item info: Ice Spiker Deathless (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.069] [BankResearch] [DEBUG] Extracted item info: Electric Slide Splatter Gun (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.069] [BankResearch] [DEBUG] Extracted item info: Elemental Projector Rocket Boots (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.069] [BankResearch] [DEBUG] Extracted item info: Radiodead Deathless (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.070] [BankResearch] [DEBUG] Extracted item info: Toxic Revenger Deathless (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.070] [BankResearch] [DEBUG] Extracted item info: Atom Balm Deathless (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.071] [BankResearch] [DEBUG] Extracted item info: Shock Stone Deathless (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.071] [BankResearch] [DEBUG] Extracted item info: Shock Stone Victory Rush (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.071] [BankResearch] [DEBUG] Extracted item info: Atom Balm Deathless (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.072] [BankResearch] [DEBUG] Extracted item info: Elemental Projector Rocket Boots (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.072] [BankResearch] [DEBUG] Extracted item info: Cryo Stone Victory Rush (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.072] [BankResearch] [DEBUG] Extracted item info: Atlas Company Man (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.073] [BankResearch] [DEBUG] Extracted item info: Jakobs Company Man (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.073] [BankResearch] [DEBUG] Extracted item info: Jakobs Company Man (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.073] [BankResearch] [DEBUG] Extracted item info: Maliwan Company Man (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.074] [BankResearch] [DEBUG] Extracted item info: Torgue Company Man (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.074] [BankResearch] [DEBUG] Extracted item info: Elemental Projector Deathless (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.074] [BankResearch] [DEBUG] Extracted item info: Radiodead Victory Rush (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.075] [BankResearch] [DEBUG] Extracted item info: Toxic Revenger Deathless (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.075] [BankResearch] [DEBUG] Extracted item info: Atom Balm Rocket Boots (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.075] [BankResearch] [DEBUG] Extracted item info: Cauterizing Static Charge (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.076] [BankResearch] [DEBUG] Extracted item info: Cryo Stone White Elephant (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.076] [BankResearch] [DEBUG] Extracted item info: Cutpurse Commander Planetoid (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.076] [BankResearch] [DEBUG] Extracted item info: Flesh Melter Rocket Boots (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.077] [BankResearch] [DEBUG] Extracted item info: Last Stand Commander Planetoid (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.077] [BankResearch] [DEBUG] Extracted item info: Snowdrift Commander Planetoid (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.077] [BankResearch] [DEBUG] Extracted item info: Knife Drain Static Charge (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.078] [BankResearch] [DEBUG] Extracted item info: Cauterizing Static Charge (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.078] [BankResearch] [DEBUG] Extracted item info: Elemental Projector Rocket Boots (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.078] [BankResearch] [DEBUG] Sorting 77 items using method: Boividevngu
+[09:36:57.078] [BankResearch] [DEBUG] Sorted by Boividevngu: rarities/levels = [(0, 0), (0, 0), (0, 0), (0, 0), (0, 0)]
+[09:36:57.079] [BankResearch] [INFO] Bank sort 'Boividevngu' completed - logical sort successful, physical reorder needs API
+[09:36:57.200] [BankResearch] [INFO] Sort button pressed, using method: Boividevngu
+[09:36:57.201] [BankResearch] [INFO] sort_bank_items called with method: Boividevngu
+[09:36:57.201] [BankResearch] [DEBUG] PlayerController found, attempting to sort bank using 'Boividevngu' method
+[09:36:57.201] [BankResearch] [DEBUG] Trying to find class: BankInventory
+[09:36:57.201] [BankResearch] [DEBUG] Class BankInventory not found: Couldn't find class 'BankInventory'
+[09:36:57.201] [BankResearch] [DEBUG] Trying to find class: OakInventory
+[09:36:57.202] [BankResearch] [DEBUG] Class OakInventory not found: Couldn't find class 'OakInventory'
+[09:36:57.202] [BankResearch] [DEBUG] Trying to find class: OakBank
+[09:36:57.202] [BankResearch] [DEBUG] Class OakBank not found: Couldn't find class 'OakBank'
+[09:36:57.202] [BankResearch] [DEBUG] Trying to find class: InventoryComponent
+[09:36:57.202] [BankResearch] [DEBUG] Class InventoryComponent not found: Couldn't find class 'InventoryComponent'
+[09:36:57.203] [BankResearch] [DEBUG] Trying to find class: BankComponent
+[09:36:57.203] [BankResearch] [DEBUG] Class BankComponent not found: Couldn't find class 'BankComponent'
+[09:36:57.203] [BankResearch] [DEBUG] Trying to find class: OakStorageComponent
+[09:36:57.203] [BankResearch] [DEBUG] Class OakStorageComponent not found: Couldn't find class 'OakStorageComponent'
+[09:36:57.203] [BankResearch] [DEBUG] Trying to find class: OakInventoryBalanceStateComponent
+[09:36:57.217] [BankResearch] [INFO] Found 77 OakInventoryBalanceStateComponent objects
+[09:36:57.217] [BankResearch] [INFO] Found 77 OakInventoryBalanceStateComponent objects for sorting
+[09:36:57.218] [BankResearch] [DEBUG] Extracted item info: Unknown (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.218] [BankResearch] [DEBUG] Item 0: Unknown (Rarity: 0)
+[09:36:57.218] [BankResearch] [DEBUG] Extracted item info: Reborn (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.218] [BankResearch] [DEBUG] Item 1: Reborn (Rarity: 0)
+[09:36:57.219] [BankResearch] [DEBUG] Extracted item info: Berzerker Rocket Boots (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.219] [BankResearch] [DEBUG] Item 2: Berzerker Rocket Boots (Rarity: 0)
+[09:36:57.219] [BankResearch] [DEBUG] Extracted item info: Ice Spiker Deathless (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.220] [BankResearch] [DEBUG] Extracted item info: Electric Slide Splatter Gun (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.220] [BankResearch] [DEBUG] Extracted item info: Elemental Projector Rocket Boots (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.220] [BankResearch] [DEBUG] Extracted item info: Radiodead Deathless (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.221] [BankResearch] [DEBUG] Extracted item info: Toxic Revenger Deathless (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.221] [BankResearch] [DEBUG] Extracted item info: Atom Balm Deathless (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.221] [BankResearch] [DEBUG] Extracted item info: Shock Stone Deathless (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.222] [BankResearch] [DEBUG] Extracted item info: Shock Stone Victory Rush (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.222] [BankResearch] [DEBUG] Extracted item info: Atom Balm Deathless (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.222] [BankResearch] [DEBUG] Extracted item info: Elemental Projector Rocket Boots (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.223] [BankResearch] [DEBUG] Extracted item info: Cryo Stone Victory Rush (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.223] [BankResearch] [DEBUG] Extracted item info: Atlas Company Man (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.224] [BankResearch] [DEBUG] Extracted item info: Jakobs Company Man (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.224] [BankResearch] [DEBUG] Extracted item info: Jakobs Company Man (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.224] [BankResearch] [DEBUG] Extracted item info: Maliwan Company Man (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.225] [BankResearch] [DEBUG] Extracted item info: Torgue Company Man (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.225] [BankResearch] [DEBUG] Extracted item info: Elemental Projector Deathless (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.225] [BankResearch] [DEBUG] Extracted item info: Radiodead Victory Rush (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.226] [BankResearch] [DEBUG] Extracted item info: Toxic Revenger Deathless (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.226] [BankResearch] [DEBUG] Extracted item info: Atom Balm Rocket Boots (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.226] [BankResearch] [DEBUG] Extracted item info: Cauterizing Static Charge (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.227] [BankResearch] [DEBUG] Extracted item info: Cryo Stone White Elephant (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.227] [BankResearch] [DEBUG] Extracted item info: Cutpurse Commander Planetoid (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.227] [BankResearch] [DEBUG] Extracted item info: Flesh Melter Rocket Boots (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.228] [BankResearch] [DEBUG] Extracted item info: Last Stand Commander Planetoid (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.228] [BankResearch] [DEBUG] Extracted item info: Snowdrift Commander Planetoid (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.228] [BankResearch] [DEBUG] Extracted item info: Knife Drain Static Charge (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.229] [BankResearch] [DEBUG] Extracted item info: Cauterizing Static Charge (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.229] [BankResearch] [DEBUG] Extracted item info: Elemental Projector Rocket Boots (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.229] [BankResearch] [DEBUG] Extracted item info: The Pearl of Ineffable Knowledge (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.230] [BankResearch] [DEBUG] Extracted item info: Last Stand Victory Rush (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.230] [BankResearch] [DEBUG] Extracted item info: Rear Ender Commander Planetoid (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.231] [BankResearch] [DEBUG] Extracted item info: Corrosive Stone Rocket Boots (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.231] [BankResearch] [DEBUG] Extracted item info: Unleash the Dragon (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.231] [BankResearch] [DEBUG] Extracted item info: Snowdrift Cosmic Crater (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.232] [BankResearch] [DEBUG] Extracted item info: Shlooter (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.232] [BankResearch] [DEBUG] Extracted item info: Cryo Stone Static Charge (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.232] [BankResearch] [DEBUG] Extracted item info: Fire Stone White Elephant (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.233] [BankResearch] [DEBUG] Extracted item info: Shock Stone Commander Planetoid (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.233] [BankResearch] [DEBUG] Extracted item info: Cryo Stone Commander Planetoid (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.233] [BankResearch] [DEBUG] Extracted item info: Chaotic Hood (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.234] [BankResearch] [DEBUG] Extracted item info: Spark Plug White Elephant (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.234] [BankResearch] [DEBUG] Extracted item info: Radiation Stone White Elephant (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.234] [BankResearch] [DEBUG] Extracted item info: Knife Drain Static Charge (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.235] [BankResearch] [DEBUG] Extracted item info: Berzerker Rocket Boots (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.235] [BankResearch] [DEBUG] Extracted item info: Ice Spiker Deathless (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.235] [BankResearch] [DEBUG] Extracted item info: Electric Slide Splatter Gun (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.236] [BankResearch] [DEBUG] Extracted item info: Elemental Projector Rocket Boots (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.236] [BankResearch] [DEBUG] Extracted item info: Radiodead Deathless (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.236] [BankResearch] [DEBUG] Extracted item info: Toxic Revenger Deathless (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.237] [BankResearch] [DEBUG] Extracted item info: Atom Balm Deathless (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.237] [BankResearch] [DEBUG] Extracted item info: Shock Stone Deathless (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.237] [BankResearch] [DEBUG] Extracted item info: Shock Stone Victory Rush (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.238] [BankResearch] [DEBUG] Extracted item info: Atom Balm Deathless (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.238] [BankResearch] [DEBUG] Extracted item info: Elemental Projector Rocket Boots (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.239] [BankResearch] [DEBUG] Extracted item info: Cryo Stone Victory Rush (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.239] [BankResearch] [DEBUG] Extracted item info: Atlas Company Man (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.239] [BankResearch] [DEBUG] Extracted item info: Jakobs Company Man (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.240] [BankResearch] [DEBUG] Extracted item info: Jakobs Company Man (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.240] [BankResearch] [DEBUG] Extracted item info: Maliwan Company Man (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.240] [BankResearch] [DEBUG] Extracted item info: Torgue Company Man (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.241] [BankResearch] [DEBUG] Extracted item info: Elemental Projector Deathless (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.241] [BankResearch] [DEBUG] Extracted item info: Radiodead Victory Rush (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.241] [BankResearch] [DEBUG] Extracted item info: Toxic Revenger Deathless (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.242] [BankResearch] [DEBUG] Extracted item info: Atom Balm Rocket Boots (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.242] [BankResearch] [DEBUG] Extracted item info: Cauterizing Static Charge (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.242] [BankResearch] [DEBUG] Extracted item info: Cryo Stone White Elephant (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.243] [BankResearch] [DEBUG] Extracted item info: Cutpurse Commander Planetoid (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.243] [BankResearch] [DEBUG] Extracted item info: Flesh Melter Rocket Boots (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.244] [BankResearch] [DEBUG] Extracted item info: Last Stand Commander Planetoid (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.244] [BankResearch] [DEBUG] Extracted item info: Snowdrift Commander Planetoid (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.244] [BankResearch] [DEBUG] Extracted item info: Knife Drain Static Charge (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.245] [BankResearch] [DEBUG] Extracted item info: Cauterizing Static Charge (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.245] [BankResearch] [DEBUG] Extracted item info: Elemental Projector Rocket Boots (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.245] [BankResearch] [DEBUG] Sorting 77 items using method: Boividevngu
+[09:36:57.245] [BankResearch] [DEBUG] Sorted by Boividevngu: rarities/levels = [(0, 0), (0, 0), (0, 0), (0, 0), (0, 0)]
+[09:36:57.245] [BankResearch] [INFO] Bank sort 'Boividevngu' completed - logical sort successful, physical reorder needs API
+[09:36:57.365] [BankResearch] [INFO] Sort button pressed, using method: Boividevngu
+[09:36:57.366] [BankResearch] [INFO] sort_bank_items called with method: Boividevngu
+[09:36:57.366] [BankResearch] [DEBUG] PlayerController found, attempting to sort bank using 'Boividevngu' method
+[09:36:57.366] [BankResearch] [DEBUG] Trying to find class: BankInventory
+[09:36:57.366] [BankResearch] [DEBUG] Class BankInventory not found: Couldn't find class 'BankInventory'
+[09:36:57.366] [BankResearch] [DEBUG] Trying to find class: OakInventory
+[09:36:57.367] [BankResearch] [DEBUG] Class OakInventory not found: Couldn't find class 'OakInventory'
+[09:36:57.367] [BankResearch] [DEBUG] Trying to find class: OakBank
+[09:36:57.367] [BankResearch] [DEBUG] Class OakBank not found: Couldn't find class 'OakBank'
+[09:36:57.367] [BankResearch] [DEBUG] Trying to find class: InventoryComponent
+[09:36:57.367] [BankResearch] [DEBUG] Class InventoryComponent not found: Couldn't find class 'InventoryComponent'
+[09:36:57.367] [BankResearch] [DEBUG] Trying to find class: BankComponent
+[09:36:57.367] [BankResearch] [DEBUG] Class BankComponent not found: Couldn't find class 'BankComponent'
+[09:36:57.368] [BankResearch] [DEBUG] Trying to find class: OakStorageComponent
+[09:36:57.368] [BankResearch] [DEBUG] Class OakStorageComponent not found: Couldn't find class 'OakStorageComponent'
+[09:36:57.368] [BankResearch] [DEBUG] Trying to find class: OakInventoryBalanceStateComponent
+[09:36:57.382] [BankResearch] [INFO] Found 77 OakInventoryBalanceStateComponent objects
+[09:36:57.382] [BankResearch] [INFO] Found 77 OakInventoryBalanceStateComponent objects for sorting
+[09:36:57.383] [BankResearch] [DEBUG] Extracted item info: Unknown (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.383] [BankResearch] [DEBUG] Item 0: Unknown (Rarity: 0)
+[09:36:57.383] [BankResearch] [DEBUG] Extracted item info: Reborn (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.383] [BankResearch] [DEBUG] Item 1: Reborn (Rarity: 0)
+[09:36:57.383] [BankResearch] [DEBUG] Extracted item info: Berzerker Rocket Boots (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.384] [BankResearch] [DEBUG] Item 2: Berzerker Rocket Boots (Rarity: 0)
+[09:36:57.384] [BankResearch] [DEBUG] Extracted item info: Ice Spiker Deathless (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.384] [BankResearch] [DEBUG] Extracted item info: Electric Slide Splatter Gun (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.385] [BankResearch] [DEBUG] Extracted item info: Elemental Projector Rocket Boots (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.385] [BankResearch] [DEBUG] Extracted item info: Radiodead Deathless (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.385] [BankResearch] [DEBUG] Extracted item info: Toxic Revenger Deathless (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.386] [BankResearch] [DEBUG] Extracted item info: Atom Balm Deathless (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.386] [BankResearch] [DEBUG] Extracted item info: Shock Stone Deathless (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.386] [BankResearch] [DEBUG] Extracted item info: Shock Stone Victory Rush (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.387] [BankResearch] [DEBUG] Extracted item info: Atom Balm Deathless (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.387] [BankResearch] [DEBUG] Extracted item info: Elemental Projector Rocket Boots (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.387] [BankResearch] [DEBUG] Extracted item info: Cryo Stone Victory Rush (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.388] [BankResearch] [DEBUG] Extracted item info: Atlas Company Man (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.388] [BankResearch] [DEBUG] Extracted item info: Jakobs Company Man (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.388] [BankResearch] [DEBUG] Extracted item info: Jakobs Company Man (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.389] [BankResearch] [DEBUG] Extracted item info: Maliwan Company Man (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.389] [BankResearch] [DEBUG] Extracted item info: Torgue Company Man (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.389] [BankResearch] [DEBUG] Extracted item info: Elemental Projector Deathless (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.390] [BankResearch] [DEBUG] Extracted item info: Radiodead Victory Rush (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.390] [BankResearch] [DEBUG] Extracted item info: Toxic Revenger Deathless (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.391] [BankResearch] [DEBUG] Extracted item info: Atom Balm Rocket Boots (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.391] [BankResearch] [DEBUG] Extracted item info: Cauterizing Static Charge (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.391] [BankResearch] [DEBUG] Extracted item info: Cryo Stone White Elephant (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.392] [BankResearch] [DEBUG] Extracted item info: Cutpurse Commander Planetoid (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.392] [BankResearch] [DEBUG] Extracted item info: Flesh Melter Rocket Boots (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.392] [BankResearch] [DEBUG] Extracted item info: Last Stand Commander Planetoid (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.393] [BankResearch] [DEBUG] Extracted item info: Snowdrift Commander Planetoid (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.393] [BankResearch] [DEBUG] Extracted item info: Knife Drain Static Charge (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.393] [BankResearch] [DEBUG] Extracted item info: Cauterizing Static Charge (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.394] [BankResearch] [DEBUG] Extracted item info: Elemental Projector Rocket Boots (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.394] [BankResearch] [DEBUG] Extracted item info: The Pearl of Ineffable Knowledge (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.394] [BankResearch] [DEBUG] Extracted item info: Last Stand Victory Rush (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.395] [BankResearch] [DEBUG] Extracted item info: Rear Ender Commander Planetoid (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.395] [BankResearch] [DEBUG] Extracted item info: Corrosive Stone Rocket Boots (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.395] [BankResearch] [DEBUG] Extracted item info: Unleash the Dragon (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.396] [BankResearch] [DEBUG] Extracted item info: Snowdrift Cosmic Crater (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.396] [BankResearch] [DEBUG] Extracted item info: Shlooter (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.396] [BankResearch] [DEBUG] Extracted item info: Cryo Stone Static Charge (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.397] [BankResearch] [DEBUG] Extracted item info: Fire Stone White Elephant (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.397] [BankResearch] [DEBUG] Extracted item info: Shock Stone Commander Planetoid (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.398] [BankResearch] [DEBUG] Extracted item info: Cryo Stone Commander Planetoid (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.398] [BankResearch] [DEBUG] Extracted item info: Chaotic Hood (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.398] [BankResearch] [DEBUG] Extracted item info: Spark Plug White Elephant (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.399] [BankResearch] [DEBUG] Extracted item info: Radiation Stone White Elephant (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.399] [BankResearch] [DEBUG] Extracted item info: Knife Drain Static Charge (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.399] [BankResearch] [DEBUG] Extracted item info: Berzerker Rocket Boots (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.400] [BankResearch] [DEBUG] Extracted item info: Ice Spiker Deathless (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.400] [BankResearch] [DEBUG] Extracted item info: Electric Slide Splatter Gun (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.400] [BankResearch] [DEBUG] Extracted item info: Elemental Projector Rocket Boots (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.401] [BankResearch] [DEBUG] Extracted item info: Radiodead Deathless (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.401] [BankResearch] [DEBUG] Extracted item info: Toxic Revenger Deathless (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.401] [BankResearch] [DEBUG] Extracted item info: Atom Balm Deathless (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.402] [BankResearch] [DEBUG] Extracted item info: Shock Stone Deathless (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.402] [BankResearch] [DEBUG] Extracted item info: Shock Stone Victory Rush (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.402] [BankResearch] [DEBUG] Extracted item info: Atom Balm Deathless (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.403] [BankResearch] [DEBUG] Extracted item info: Elemental Projector Rocket Boots (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.403] [BankResearch] [DEBUG] Extracted item info: Cryo Stone Victory Rush (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.403] [BankResearch] [DEBUG] Extracted item info: Atlas Company Man (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.404] [BankResearch] [DEBUG] Extracted item info: Jakobs Company Man (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.404] [BankResearch] [DEBUG] Extracted item info: Jakobs Company Man (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.404] [BankResearch] [DEBUG] Extracted item info: Maliwan Company Man (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.405] [BankResearch] [DEBUG] Extracted item info: Torgue Company Man (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.405] [BankResearch] [DEBUG] Extracted item info: Elemental Projector Deathless (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.405] [BankResearch] [DEBUG] Extracted item info: Radiodead Victory Rush (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.406] [BankResearch] [DEBUG] Extracted item info: Toxic Revenger Deathless (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.406] [BankResearch] [DEBUG] Extracted item info: Atom Balm Rocket Boots (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.406] [BankResearch] [DEBUG] Extracted item info: Cauterizing Static Charge (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.407] [BankResearch] [DEBUG] Extracted item info: Cryo Stone White Elephant (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.407] [BankResearch] [DEBUG] Extracted item info: Cutpurse Commander Planetoid (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.407] [BankResearch] [DEBUG] Extracted item info: Flesh Melter Rocket Boots (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.408] [BankResearch] [DEBUG] Extracted item info: Last Stand Commander Planetoid (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.408] [BankResearch] [DEBUG] Extracted item info: Snowdrift Commander Planetoid (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.409] [BankResearch] [DEBUG] Extracted item info: Knife Drain Static Charge (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.409] [BankResearch] [DEBUG] Extracted item info: Cauterizing Static Charge (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.409] [BankResearch] [DEBUG] Extracted item info: Elemental Projector Rocket Boots (Rarity: 0, Type: Unknown, Level: 0)
+[09:36:57.409] [BankResearch] [DEBUG] Sorting 77 items using method: Boividevngu
+[09:36:57.409] [BankResearch] [DEBUG] Sorted by Boividevngu: rarities/levels = [(0, 0), (0, 0), (0, 0), (0, 0), (0, 0)]
+[09:36:57.410] [BankResearch] [INFO] Bank sort 'Boividevngu' completed - logical sort successful, physical reorder needs API
