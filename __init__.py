@@ -40,6 +40,13 @@ OUTPUT_FILE = "bank_structure_dump.txt"
 JSON_FILE = "bank_structure_dump.json"
 SUMMARY_FILE = "mod_data_summary.txt"
 
+# Default values for item properties
+DEFAULT_ITEM_NAME = "Unknown"
+DEFAULT_ITEM_TYPE = "Unknown"
+DEFAULT_ITEM_MANUFACTURER = "Unknown"
+DEFAULT_ITEM_RARITY = 0
+DEFAULT_ITEM_LEVEL = 0
+
 # Possible class names for bank/inventory objects in Borderlands 3
 # The actual class name may vary by game version, so we try multiple options
 # Expanded based on bl3data research patterns
@@ -726,36 +733,30 @@ def get_item_info(item_obj: Any) -> dict:
         Dictionary with item information
     """
     info = {
-        "name": "Unknown",
-        "rarity": 0,
-        "type": "Unknown",
-        "level": 0,
-        "manufacturer": "Unknown",
+        "name": DEFAULT_ITEM_NAME,
+        "rarity": DEFAULT_ITEM_RARITY,
+        "type": DEFAULT_ITEM_TYPE,
+        "level": DEFAULT_ITEM_LEVEL,
+        "manufacturer": DEFAULT_ITEM_MANUFACTURER,
         "balance": None,
         "object": item_obj
     }
     
     try:
-        # Debug: Log available attributes on first item to help identify correct property names
-        if DEBUG_ENABLED:
-            attrs = dir(item_obj)
-            debug_log(f"Item object type: {safe_type(item_obj)}", "DEBUG")
-            debug_log(f"Available attributes: {[a for a in attrs if not a.startswith('_')][:20]}", "DEBUG")
-        
         # Extract item information using helper function to reduce code duplication
         # Try multiple possible attribute names for each property
         name_val = get_first_valid_attr(item_obj, ["ItemName", "DisplayName", "InventoryName", "Name", "UIDisplayName"], None, str)
         if name_val:
             info["name"] = name_val
         
-        rarity_val = get_first_valid_attr(item_obj, ["Rarity", "ItemRarity", "RarityLevel", "RarityData"], 0, int)
+        rarity_val = get_first_valid_attr(item_obj, ["Rarity", "ItemRarity", "RarityLevel", "RarityData"], DEFAULT_ITEM_RARITY, int)
         info["rarity"] = rarity_val
         
         type_val = get_first_valid_attr(item_obj, ["ItemType", "InventoryType", "Type", "CategoryDefinition", "InventoryData"], None, str)
         if type_val:
             info["type"] = type_val
         
-        level_val = get_first_valid_attr(item_obj, ["Level", "ItemLevel", "RequiredLevel", "GameStage"], 0, int)
+        level_val = get_first_valid_attr(item_obj, ["Level", "ItemLevel", "RequiredLevel", "GameStage"], DEFAULT_ITEM_LEVEL, int)
         info["level"] = level_val
         
         mfr_val = get_first_valid_attr(item_obj, ["Manufacturer", "ManufacturerDefinition", "Brand", "ManufacturerData"], None, str)
@@ -767,7 +768,7 @@ def get_item_info(item_obj: Any) -> dict:
             info["balance"] = getattr(item_obj, "BalanceState", None)
         
         # If we still have default values, try to get data from nested objects
-        if info["name"] == "Unknown" or info["rarity"] == 0:
+        if info["name"] == DEFAULT_ITEM_NAME or info["rarity"] == DEFAULT_ITEM_RARITY:
             # Try to access InventoryData or BalanceData for more info
             if hasattr(item_obj, "InventoryData"):
                 inv_data = getattr(item_obj, "InventoryData", None)
@@ -776,7 +777,7 @@ def get_item_info(item_obj: Any) -> dict:
                     # Try to extract from nested data
                     if hasattr(inv_data, "InventoryBrandName"):
                         name_from_data = safe_str(getattr(inv_data, "InventoryBrandName", ""))
-                        if name_from_data and info["name"] == "Unknown":
+                        if name_from_data and info["name"] == DEFAULT_ITEM_NAME:
                             info["name"] = name_from_data
             
             # Try BalanceData
