@@ -6,8 +6,11 @@ BankResearch là mod cho Borderlands 3 giúp bạn:
 - ✅ Sắp xếp items trong Bank theo nhiều cách khác nhau
 - ✅ Research/debug Bank structure để phát triển tính năng mới
 - ✅ Debug logging chi tiết để tìm lỗi
+- ✅ Hỗ trợ song ngữ Việt-Anh trong thông báo
 
 **Version hiện tại:** v0.7.1
+
+> 📝 **Cập nhật mới nhất**: Cải thiện trích xuất dữ liệu item với chế độ chẩn đoán và hỗ trợ tiếng Việt đầy đủ. Xem chi tiết tại [FIX_ITEM_EXTRACTION_VI.md](FIX_ITEM_EXTRACTION_VI.md).
 
 ---
 

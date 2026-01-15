@@ -6,6 +6,8 @@
 
 A Borderlands 3 mod for researching and sorting bank inventory, with comprehensive data scanning inspired by [apocalyptech/bl3data](https://github.com/apocalyptech/bl3data).
 
+> 📝 **Latest Update**: Enhanced item data extraction with diagnostic mode and Vietnamese language support. See [FIX_ITEM_EXTRACTION_VI.md](FIX_ITEM_EXTRACTION_VI.md) for details.
+
 ## 🎯 Features
 
 ### Current (v0.7.1)
