@@ -1,0 +1,80 @@
+================================================================================
+MOD DATA SCAN SUMMARY
+Comprehensive scan inspired by bl3data extraction techniques
+================================================================================
+
+MOD-RELATED CLASSES FOUND:
+--------------------------------------------------------------------------------
+
+OakPlayerController:
+  Type: <class 'unrealsdk.unreal.UObject'>
+  Inventory attributes: 22
+  Bank attributes: 8
+  Item attributes: 17
+  Balance attributes: 17
+  Serial attributes: 50
+  Total methods: 664
+  Total properties: 287
+
+OakCharacter_Player:
+  Type: <class 'unrealsdk.unreal.UObject'>
+  Inventory attributes: 40
+  Bank attributes: 4
+  Item attributes: 86
+  Balance attributes: 6
+  Serial attributes: 35
+  Total methods: 554
+  Total properties: 342
+
+InventoryBalanceStateComponent:
+  Type: <class 'unrealsdk.unreal.UObject'>
+  Inventory attributes: 19
+  Balance attributes: 17
+  Serial attributes: 2
+  Total methods: 69
+  Total properties: 54
+
+InventorySerialNumberDatabase:
+  Type: <class 'unrealsdk.unreal.UObject'>
+  Total methods: 1
+  Total properties: 6
+
+ItemPoolData:
+  Type: <class 'unrealsdk.unreal.UObject'>
+  Item attributes: 1
+  Balance attributes: 2
+  Serial attributes: 2
+  Total methods: 1
+  Total properties: 14
+
+InventoryGenericPartData:
+  Type: <class 'unrealsdk.unreal.UObject'>
+  Inventory attributes: 3
+  Item attributes: 2
+  Balance attributes: 17
+  Serial attributes: 4
+  Total methods: 6
+  Total properties: 36
+
+WeaponBalanceStateComponent:
+  Type: <class 'unrealsdk.unreal.UObject'>
+  Inventory attributes: 19
+  Item attributes: 4
+  Balance attributes: 19
+  Serial attributes: 3
+  Total methods: 74
+  Total properties: 69
+
+InventoryData:
+  Type: <class 'unrealsdk.unreal.UObject'>
+  Inventory attributes: 8
+  Item attributes: 6
+  Balance attributes: 3
+  Serial attributes: 6
+  Total methods: 2
+  Total properties: 61
+
+
+================================================================================
+For full details, see bank_structure_dump.txt and bank_structure_dump.json
+================================================================================

@@ -946,11 +946,11 @@ def sort_bank_items(method: str = "Boividevngu") -> None:
         logging.error(f"[{MOD_NAME}] ❌ {error_msg}")
 
 @keybind("NumPadEight")
-def do_research(_) -> None:
+def do_research() -> None:
     """Keybind: NumPad8 to dump Bank structure"""
     debug_log("NumPad8 pressed - starting Bank structure research", "INFO")
     logging.info(f"[{MOD_NAME}] 🔍 Starting Bank structure research...")
-    logging.info(f"[{MOD_NAME}] ℹ️ This will help identify which game classes exist for bank sorting")
+    logging.info(f"[{MOD_NAME}] ℹ    This will help identify which game classes exist for bank sorting")
     logging.info(f"[{MOD_NAME}] Please wait...")
     
     result = dump_player_controller()
@@ -966,7 +966,7 @@ def do_research(_) -> None:
         debug_log(f"Research failed: {result.get('error', 'Unknown error')}", "ERROR")
 
 @keybind("NumPadSeven")
-def do_bank_sort(_) -> None:
+def do_bank_sort() -> None:
     """Keybind: NumPad7 to sort Bank"""
     debug_log(f"NumPad7 pressed - triggering bank sort with method: {CURRENT_SORT_METHOD}", "INFO")
     logging.info(f"[{MOD_NAME}] 🔄 Attempting to sort bank with method: {CURRENT_SORT_METHOD}")
